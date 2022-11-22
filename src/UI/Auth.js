@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Image from '../assets/images/sign.avif'
 import '../App.css'
+import foreman from "../components/foreman/foreman"
 
 
 const Auth = (props) => {
@@ -44,9 +45,11 @@ const Auth = (props) => {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
+              <Link to = "/admin">
+              <button type="submit" className="btn btn-primary" onClick={foreman}>
                 Submit
               </button>
+              </Link>
             </div>
             <p className="text-center mt-2">
               Forgot <a href="#">password?</a>
