@@ -60,9 +60,11 @@ const Auth = (props) => {
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="text-center">
             Already registered?{" "}
+            <Link to = "/register">
             <span className="link-primary" onClick={changeAuthMode}>
               Sign In
             </span>
+            </Link>
           </div>
           <div className="form-group mt-3">
             <label>Full Name</label>
