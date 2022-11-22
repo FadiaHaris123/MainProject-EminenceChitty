@@ -1,8 +1,7 @@
-
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
-import Image from '../assets/images/register.png'
+import Image from '../assets/images/sign.avif'
 const Auth = (props) => {
   let [authMode, setAuthMode] = useState("signup")
 
@@ -118,19 +117,6 @@ const HeaderStyle = {
 export default Auth;
 
 
-
-
-export default RegisterForm;
-
-const HeaderStyle = {
-  width: "100%",
-  height: "100vh",
-  background: `url(${Image})`,
-  backgroundPosition:'fixed',
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "100% 100%",
-  backgroundAttachment: "fixed"
-}
 
 
 
@@ -282,4 +268,3 @@ const HeaderStyle = {
 
 
 // export default RegisterForm;
-
