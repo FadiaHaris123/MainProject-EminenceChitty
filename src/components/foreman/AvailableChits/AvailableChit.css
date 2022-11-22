@@ -1,4 +1,15 @@
 .container{
     position: relative;
     top: 100px;
+    
 }
+
+.chitsLoading {
+    text-align: center;
+    color: white;
+  }
+
+  .chitsError {
+    text-align: center;
+    color: red;
+  }
