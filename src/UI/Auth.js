@@ -1,14 +1,50 @@
-
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Image from '../assets/images/sign.avif'
 import '../App.css'
 import foreman from "../components/foreman/foreman"
 
-
 const Auth = (props) => {
-  let [authMode, setAuthMode] = useState("signin")
+  const customers = async () => {
+        const response = await fetch(  'http://localhost:8080/api/meals/' );
 
+if (!response.ok) {      
+  throw new Error('Something went wrong!');
+}
+    const responseData = await response.json();
+    const activeCustomers = [];
+    const newItemList = [...responseData._embedded.meals]
+    for (const key in newItemList) {
+      activeCustomers.push({
+        id: key,
+        name: newItemList[key].name,
+        description: newItemList[key].description,
+        price: newItemList[key].price,
+
+      });
+
+    }
+    // setMeals(activeCustomers);
+
+    // setIsLoading(false);
+
+  };
+  customers().catch((error) => {
+
+  //   setIsLoading(false);
+
+  //   setHttpError(error.message);
+
+  });
+
+
+
+
+
+
+
+
+  let [authMode, setAuthMode] = useState("signin")
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
@@ -62,7 +98,7 @@ const Auth = (props) => {
   }
 
   return (
-  
+  <header style={ HeaderStyle }>
     <div className="Auth-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
@@ -110,6 +146,7 @@ const Auth = (props) => {
         </div>
       </form>
     </div>
+    </header>
 
   )
 }
