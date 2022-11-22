@@ -1,5 +1,6 @@
 import React from 'react';
 import './registrationForm.css';
+import Image from '../assets/images/signup.jpg'
 
 
 class RegisterForm extends React.Component {
@@ -135,3 +136,13 @@ class RegisterForm extends React.Component {
 
 
 export default RegisterForm;
+
+const HeaderStyle = {
+  width: "100%",
+  height: "100vh",
+  background: `url(${Image})`,
+  backgroundPosition:'fixed',
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "100% 100%",
+  backgroundAttachment: "fixed"
+}
