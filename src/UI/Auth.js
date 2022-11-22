@@ -1,5 +1,6 @@
 
 import React, { useState } from "react"
+import { Link } from "react-router-dom"
 
 const Auth = (props) => {
   let [authMode, setAuthMode] = useState("signin")
@@ -16,9 +17,11 @@ const Auth = (props) => {
             <h3 className="Auth-form-title">Log In</h3>
             <div className="text-center">
               Not registered yet?{" "}
+              <Link to = "/register">
               <span className="link-primary" onClick={changeAuthMode}>
                 Sign Up
               </span>
+              </Link>
             </div>
             <div className="form-group mt-3">
               <label>Email address</label>
