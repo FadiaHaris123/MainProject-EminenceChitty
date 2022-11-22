@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
-import Image from '../assets/images/register.png'
+import Image from '../assets/images/sign.avif'
 const Auth = (props) => {
   let [authMode, setAuthMode] = useState("signup")
 
@@ -275,4 +275,6 @@ export default Auth;
 // }
 
 
+
 // export default RegisterForm;
+
