@@ -1,24 +1,68 @@
-
 import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import Image from '../assets/images/sign.avif'
+import '../App.css'
+import foreman from "../components/foreman/foreman"
 
-export default function (props) {
+const Auth = (props) => {
+  const customers = async () => {
+        const response = await fetch(  'http://localhost:8080/api/meals/' );
+
+if (!response.ok) {      
+  throw new Error('Something went wrong!');
+}
+    const responseData = await response.json();
+    const activeCustomers = [];
+    const newItemList = [...responseData._embedded.meals]
+    for (const key in newItemList) {
+      activeCustomers.push({
+        id: key,
+        name: newItemList[key].name,
+        description: newItemList[key].description,
+        price: newItemList[key].price,
+
+      });
+
+    }
+    // setMeals(activeCustomers);
+
+    // setIsLoading(false);
+
+  };
+  customers().catch((error) => {
+
+  //   setIsLoading(false);
+
+  //   setHttpError(error.message);
+
+  });
+
+
+
+
+
+
+
+
   let [authMode, setAuthMode] = useState("signin")
-
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
 
   if (authMode === "signin") {
     return (
+      <header style={ HeaderStyle }>
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Log In</h3>
             <div className="text-center">
               Not registered yet?{" "}
+              <Link to = "/register">
               <span className="link-primary" onClick={changeAuthMode}>
                 Sign Up
               </span>
+              </Link>
             </div>
             <div className="form-group mt-3">
               <label>Email address</label>
@@ -37,9 +81,11 @@ export default function (props) {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
+              <Link to = "/admin">
+              <button type="submit" className="btn btn-primary" onClick={foreman}>
                 Submit
               </button>
+              </Link>
             </div>
             <p className="text-center mt-2">
               Forgot <a href="#">password?</a>
@@ -47,19 +93,23 @@ export default function (props) {
           </div>
         </form>
       </div>
+      </header>
     )
   }
 
   return (
+  <header style={ HeaderStyle }>
     <div className="Auth-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="text-center">
             Already registered?{" "}
+            <Link to = "/login">
             <span className="link-primary" onClick={changeAuthMode}>
               Sign In
             </span>
+            </Link>
           </div>
           <div className="form-group mt-3">
             <label>Full Name</label>
@@ -96,5 +146,19 @@ export default function (props) {
         </div>
       </form>
     </div>
+    </header>
+
   )
 }
+const HeaderStyle = {
+  width: "210vh",
+  height: "100vh",
+  background: `url(${Image})`,
+  backgroundPosition:'fixed',
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "100% 100%",
+  backgroundAttachment: "fixed"
+}
+
+export default Auth;
+
