@@ -105,7 +105,7 @@ if (!response.ok) {
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="text-center">
             Already registered?{" "}
-            <Link to = "/register">
+            <Link to = "/login">
             <span className="link-primary" onClick={changeAuthMode}>
               Sign In
             </span>

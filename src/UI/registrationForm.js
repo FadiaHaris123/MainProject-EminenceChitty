@@ -18,26 +18,34 @@ const Auth = (props) => {
             <h3 className="Auth-form-title">Sign Up</h3>
             <div className="text-center">
               Already registered?{" "}
-              <Link to = "/register">
+              <Link to = "/login">
               <span className="link-primary" onClick={changeAuthMode}>
                 Sign In
               </span>
               </Link>
             </div>
             <div className="form-group mt-3">
-              <label>Full Name</label>
+              <label>First Name</label>
               <input
-                type="email"
+                type="name"
                 className="form-control mt-1"
-                placeholder="e.g Jane Doe"
+                placeholder="e.g Jane "
               />
             </div>
             <div className="form-group mt-3">
-              <label>Email address</label>
+              <label>Last Name</label>
               <input
-                type="email"
+                type="name"
                 className="form-control mt-1"
-                placeholder="Email Address"
+                placeholder="e.g Doe"
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Mobile No.</label>
+              <input
+                type="number"
+                className="form-control mt-1"
+                placeholder="Mobile No."
               />
             </div>
             <div className="form-group mt-3">
