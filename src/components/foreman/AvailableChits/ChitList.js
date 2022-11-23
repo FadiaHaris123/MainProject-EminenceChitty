@@ -2,7 +2,7 @@
 
 const ChitList = (props) => {
 return(
-    <div>
+    <div className="chitlist">
         <li>{props.name}</li>
     </div>
 )

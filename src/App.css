@@ -58,7 +58,7 @@
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.842);
 }
 
 .Auth-form-content {
@@ -91,6 +91,12 @@ label {
   height: 100vh;
 }
 
+.overlays{
+  background: linear-gradient(0deg, rgba(16, 15, 16, 0.667),rgba(26, 25, 26, 0.849));
+  height: 100vh;
+}
+
+
 .main-title {
     padding-top: 10rem;
     font-size: 5rem;
@@ -101,6 +107,29 @@ label {
 .main-para {
     font-size: 2.5rem;
     text-Transform: capitalize
+}
+#log_btn span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#log_btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#log_btn:hover span {
+padding-right: 25px;
+}
+
+#log_btn:hover span:after {
+opacity: 1;
+right: 0;
 }
 
 #reg_btn span {
@@ -127,12 +156,13 @@ label {
   right: 0;
 }
 
+
 .primary-button {
   margin-top: 5rem;
   margin-right: 1rem;
   padding: .6rem;
   width: 10rem;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.63);
   border: none;
   color: rgb(9, 56, 84);
   font-size: 1.2rem;
@@ -143,4 +173,5 @@ label {
   border-radius: 30px;
   box-shadow: 20px 20px 50px rgb(110, 110, 110);
 }
+
 
