@@ -3,15 +3,14 @@ import AvailableChit from "./AvailableChits/AvailableChit"
 import Header from './Header/Header'
 import Navigation from './Navigation/Navigation'
 import Option from './Options/Option'
+import './foreman.css'
 
 const foreman =()=>{
-    return(<Fragment>
-     
+    return(<Fragment>    
      <Header></Header>
       <Navigation></Navigation>
-      
-      <Option></Option>  
-      <AvailableChit></AvailableChit>
+        <Option></Option>  
+        <AvailableChit></AvailableChit>
     </Fragment>)
 }
 export default foreman;

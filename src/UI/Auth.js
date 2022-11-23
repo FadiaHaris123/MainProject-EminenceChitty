@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import Image from '../assets/images/sign.avif'
+import Image from '../assets/images/login.jpg'
 import '../App.css'
 import foreman from "../components/foreman/foreman"
 
 const Auth = (props) => {
-  
+
+
   let [authMode, setAuthMode] = useState("signin")
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -14,24 +15,33 @@ const Auth = (props) => {
   if (authMode === "signin") {
     return (
       <header style={ HeaderStyle }>
+      <div className="overlays">
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Log In</h3>
+            <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
-              Not registered yet?{" "}
-              <Link to = "/register">
-              <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
-              </span>
+              Already registered?{" "}
+              <Link to="/login">
+                <span className="link-primary" onClick={changeAuthMode}>
+                  Sign In
+                </span>
               </Link>
+            </div>
+            <div className="form-group mt-3">
+              <label>Full Name</label>
+              <input
+                type="email"
+                className="form-control mt-1"
+                placeholder="e.g Jane Doe"
+              />
             </div>
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
                 type="email"
                 className="form-control mt-1"
-                placeholder="Enter email"
+                placeholder="Email Address"
               />
             </div>
             <div className="form-group mt-3">
@@ -39,12 +49,14 @@ const Auth = (props) => {
               <input
                 type="password"
                 className="form-control mt-1"
-                placeholder="Enter password"
+                placeholder="Password"
               />
             </div>
+
               <Link to = "/admin">
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary" onClick={foreman}>
+
                 Submit
               </button>
             </div>
@@ -55,12 +67,14 @@ const Auth = (props) => {
           </div>
         </form>
       </div>
+      </div>
       </header>
     )
   }
 
   return (
   <header style={ HeaderStyle }>
+    <div className="overlays">
     <div className="Auth-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
@@ -108,14 +122,14 @@ const Auth = (props) => {
         </div>
       </form>
     </div>
+    </div>
     </header>
-
   )
 }
 const HeaderStyle = {
   width: "210vh",
   height: "100vh",
-  background: `url(${Image})`,
+  background: `url(${Image})`, 
   backgroundPosition:'fixed',
   backgroundRepeat: "no-repeat",
   backgroundSize: "100% 100%",
