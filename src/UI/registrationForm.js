@@ -114,6 +114,7 @@ let [authMode, setAuthMode] = useState("signup")
 }
 
 
+
 const HeaderStyle = {
   width: "100%",
   height: "100vh",
