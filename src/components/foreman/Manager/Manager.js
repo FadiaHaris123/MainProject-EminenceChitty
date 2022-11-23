@@ -37,7 +37,7 @@ class Manager extends Component {
 	
 	// Request made to the backend api
 	// Send formData object
-	axios.post("api/uploadfile", formData);
+	axios.post("http://localhost:8080/api/products/uploadfile", formData);
 	};
 	
 	// File content to be displayed after
