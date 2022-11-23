@@ -17,7 +17,7 @@
     background: none;
     font-size: 16px;
     cursor: pointer;
-    float: left;
+    /* float: left; */
     outline: none;
 
     box-shadow:none
@@ -34,7 +34,7 @@
 
     border: none;
     border-radius: 50px;
-    background-color:#00008B;
+    background-color:#3d3dbd;
     color: #808080;
     padding: 15px 32px;
     text-align: center;
@@ -42,7 +42,7 @@
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-    float: left;
+    /* float: left; */
     outline: none;
 
     box-shadow:none
@@ -52,6 +52,6 @@
   
   .btn-group .logout-button:hover {
 
-    background-color:#00008B;
+    background-color:#5757f3;
    
   }
