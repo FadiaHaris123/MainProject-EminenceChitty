@@ -1,47 +1,10 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import Image from '../assets/images/sign.avif'
+import Image from '../assets/images/login.jpg'
 import '../App.css'
 import foreman from "../components/foreman/foreman"
 
 const Auth = (props) => {
-  const customers = async () => {
-        const response = await fetch(  'http://localhost:8080/api/meals/' );
-
-if (!response.ok) {      
-  throw new Error('Something went wrong!');
-}
-    const responseData = await response.json();
-    const activeCustomers = [];
-    const newItemList = [...responseData._embedded.meals]
-    for (const key in newItemList) {
-      activeCustomers.push({
-        id: key,
-        name: newItemList[key].name,
-        description: newItemList[key].description,
-        price: newItemList[key].price,
-
-      });
-
-    }
-    // setMeals(activeCustomers);
-
-    // setIsLoading(false);
-
-  };
-  customers().catch((error) => {
-
-  //   setIsLoading(false);
-
-  //   setHttpError(error.message);
-
-  });
-
-
-
-
-
-
 
 
   let [authMode, setAuthMode] = useState("signin")
@@ -51,110 +14,63 @@ if (!response.ok) {
 
   if (authMode === "signin") {
     return (
-      <header style={ HeaderStyle }>
-      <div className="Auth-form-container">
-        <form className="Auth-form">
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Log In</h3>
-            <div className="text-center">
-              Not registered yet?{" "}
-              <Link to = "/register">
-              <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
-              </span>
+      <header style={HeaderStyle}>
+        <div className="Auth-form-container">
+          <form className="Auth-form">
+            <div className="Auth-form-content">
+              <h3 className="Auth-form-title">Log In</h3>
+              <div className="text-center">
+                Not registered yet?{" "}
+                <Link to="/register">
+                  <span className="link-primary" onClick={changeAuthMode}>
+                    Sign Up
+                  </span>
+                </Link>
+              </div>
+              <div className="form-group mt-3">
+                <label>Email address</label>
+                <input
+                  type="email"
+                  className="form-control mt-1"
+                  placeholder="Enter email"
+                />
+              </div>
+              <div className="form-group mt-3">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control mt-1"
+                  placeholder="Enter password"
+                />
+              </div>
+              <Link to="/admin">
+                <div className="d-grid gap-2 mt-3">
+                  <button type="submit" className="btn btn-primary">
+                    Submit
+                  </button>
+                </div>
               </Link>
+              <p className="text-center mt-2">
+                Forgot <a href="#">password?</a>
+              </p>
             </div>
-            <div className="form-group mt-3">
-              <label>Email address</label>
-              <input
-                type="email"
-                className="form-control mt-1"
-                placeholder="Enter email"
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Enter password"
-              />
-            </div>
-            <div className="d-grid gap-2 mt-3">
-              <Link to = "/admin">
-              <button type="submit" className="btn btn-primary" onClick={foreman}>
-                Submit
-              </button>
-              </Link>
-            </div>
-            <p className="text-center mt-2">
-              Forgot <a href="#">password?</a>
-            </p>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
       </header>
     )
   }
 
-  return (
-  <header style={ HeaderStyle }>
-    <div className="Auth-form-container">
-      <form className="Auth-form">
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
-          <div className="text-center">
-            Already registered?{" "}
-            <Link to = "/login">
-            <span className="link-primary" onClick={changeAuthMode}>
-              Sign In
-            </span>
-            </Link>
-          </div>
-          <div className="form-group mt-3">
-            <label>Full Name</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="e.g Jane Doe"
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="Email Address"
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control mt-1"
-              placeholder="Password"
-            />
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-          <p className="text-center mt-2">
-            Forgot <a href="#">password?</a>
-          </p>
-        </div>
-      </form>
-    </div>
-    </header>
-
-  )
+  // return (
+  //   <header style={HeaderStyle}>
+  //     <registrationForm/>
+  //   </header>
+  // )
 }
 const HeaderStyle = {
   width: "210vh",
   height: "100vh",
   background: `url(${Image})`,
-  backgroundPosition:'fixed',
+  backgroundPosition: 'fixed',
   backgroundRepeat: "no-repeat",
   backgroundSize: "100% 100%",
   backgroundAttachment: "fixed"

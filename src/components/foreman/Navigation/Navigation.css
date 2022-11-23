@@ -17,7 +17,7 @@
     background: none;
     font-size: 16px;
     cursor: pointer;
-    float: left;
+    /* float: left; */
     outline: none;
 
     box-shadow:none
@@ -28,5 +28,30 @@
   .btn-group .button:hover {
 
     color:#00008B;
+   
+  }
+  .btn-group .logout-button {
+
+    border: none;
+    border-radius: 50px;
+    background-color:#3d3dbd;
+    color: #808080;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    /* float: left; */
+    outline: none;
+
+    box-shadow:none
+  }
+
+  .btn-group .logout-button:focus { outline: none; }
+  
+  .btn-group .logout-button:hover {
+
+    background-color:#5757f3;
    
   }
