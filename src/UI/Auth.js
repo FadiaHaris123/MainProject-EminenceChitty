@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import Image from '../assets/images/sign.avif'
+import Image from '../assets/images/login.jpg'
 import '../App.css'
 import foreman from "../components/foreman/foreman"
 
@@ -52,6 +52,7 @@ if (!response.ok) {
   if (authMode === "signin") {
     return (
       <header style={ HeaderStyle }>
+      <div className="overlays">
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
@@ -93,12 +94,14 @@ if (!response.ok) {
           </div>
         </form>
       </div>
+      </div>
       </header>
     )
   }
 
   return (
   <header style={ HeaderStyle }>
+    <div className="overlays">
     <div className="Auth-form-container">
       <form className="Auth-form">
         <div className="Auth-form-content">
@@ -146,14 +149,14 @@ if (!response.ok) {
         </div>
       </form>
     </div>
+    </div>
     </header>
-
   )
 }
 const HeaderStyle = {
   width: "210vh",
   height: "100vh",
-  background: `url(${Image})`,
+  background: `url(${Image})`, 
   backgroundPosition:'fixed',
   backgroundRepeat: "no-repeat",
   backgroundSize: "100% 100%",

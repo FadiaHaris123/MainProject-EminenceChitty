@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
-import Image from '../assets/images/sign.avif'
+import Image from '../assets/images/joinus.jpg'
 const Auth = (props) => {
   let [authMode, setAuthMode] = useState("signup")
 
@@ -12,6 +12,7 @@ const Auth = (props) => {
   if (authMode === "signup") {
     return (
       <header style={ HeaderStyle }>
+      <div className="overlays">
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
@@ -63,6 +64,7 @@ const Auth = (props) => {
             </div>
           </div>
         </form>
+      </div>
       </div>
       </header>
     )
