@@ -5,6 +5,8 @@ import Auth from "./UI/Auth"
 import LandingPage from "./components/LandingPage"
 import registrationForm from "./UI/registrationForm"
 import foreman from "./components/foreman/foreman"
+import Manager from "./components/foreman/Manager/Manager"
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
           <Route path="/login" component={Auth} />
           <Route path="/register" component={registrationForm}/>
           <Route path="/admin" component={foreman} />
+          <Route path="/managerList" component={Manager}/>
         </Switch>
       </Router>
   )

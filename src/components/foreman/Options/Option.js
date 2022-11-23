@@ -1,4 +1,5 @@
 import './Option.css'
+import { Link } from 'react-router-dom';
 const Option =()=>{
     return(
         <table>
@@ -17,8 +18,9 @@ const Option =()=>{
             </tr>
             <tr>
                 <td>
+                    <Link to="/managerList">
                 <button className='button'><span>Employees</span></button>
-              
+                </Link>
                 </td>
                 <td>
                 <button className='button'><span>Earnings</span></button>
