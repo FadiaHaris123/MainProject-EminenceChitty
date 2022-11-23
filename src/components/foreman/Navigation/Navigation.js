@@ -1,4 +1,5 @@
 import './Navigation.css'
+import { Link } from 'react-router-dom'
 const Navigation=()=>{
     return(
         <div class="btn-group">
@@ -6,6 +7,9 @@ const Navigation=()=>{
         <button class="button">Chitty</button>
         <button class="button">Customer Choice</button>
         <button class="button">Hi, Foreman</button>
+        <Link to = "/">
+        <button class="logout-button ">Log Out</button>
+        </Link>
       </div>
     )
    

@@ -1,0 +1,27 @@
+.manage{
+    text-align:center;
+}
+.manage h1{
+    margin-top:20px;
+    color:rgb(91, 20, 20);
+    text-align: center;
+
+}
+.anagha
+{
+    text-align: center;
+    margin: 90px 300px 50px 300px;
+    border-style:outset;
+    box-shadow: rgb(43, 40, 40);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color:black;
+    border-radius: 1cm;
+
+
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px rgb(69, 65, 65);
+}
