@@ -1,5 +1,7 @@
 import './Navigation.css'
+
 import { Link } from 'react-router-dom'
+
 const Navigation=()=>{
     return(
         <div class="btn-group">

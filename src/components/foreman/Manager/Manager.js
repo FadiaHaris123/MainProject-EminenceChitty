@@ -73,7 +73,9 @@ class Manager extends Component {
 	render() {
 	
 	return (
+
 		<div className='manage'>
+
 			<h1>
 			Chitty Manager
 			</h1>
