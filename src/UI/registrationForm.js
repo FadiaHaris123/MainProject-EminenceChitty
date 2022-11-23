@@ -69,10 +69,7 @@ let [authMode, setAuthMode] = useState("signup")
       </header>
     )
   }
-  // return (
-  //   <Auth/>
-  // )
-  
+
 }
 
 
