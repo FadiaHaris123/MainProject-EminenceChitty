@@ -115,6 +115,7 @@ const Auth = (props) => {
   if (authMode === "signin") {
     return (
       <header style={HeaderStyle}>
+        <div className="overlays">
         <div className="Auth-form-container">
           <form className="Auth-form" onSubmit={submitHandler}>
             <div className="Auth-form-content" >
@@ -169,6 +170,7 @@ const Auth = (props) => {
               {/* </Link> */}
             </div>
           </form>
+        </div>
         </div>
       </header>
     )
