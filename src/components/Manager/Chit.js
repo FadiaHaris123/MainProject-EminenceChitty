@@ -11,7 +11,7 @@ const Chit = (props) => {
     setIsLoading(true);
     setError(null);
     try {
-        const response = await fetch('https://assignchits-default-rtdb.firebaseio.com/assignedchits/a1.json');
+        const response = await fetch('https://assignchits-default-rtdb.firebaseio.com/assignedchits.json');
         if (!response.ok) {
             throw new Error('Something went wrong!');
         }
@@ -19,8 +19,7 @@ const Chit = (props) => {
         const data = await response.json();
 
         const loadedChit = [];
-
-        for (const key in data) {
+        for (let key in data) {
             loadedChit.push({
                 id: key,
                 amount: data[key].amount,
@@ -29,7 +28,7 @@ const Chit = (props) => {
                 days: data[key].days,
                 members: data[key].members,
                 startDate: data[key].startDate,
-            });
+            });  break;
         }
 
         setChit(loadedChit);

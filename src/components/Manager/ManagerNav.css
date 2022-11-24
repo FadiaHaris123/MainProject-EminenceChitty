@@ -1,7 +1,7 @@
 .btn-group{
     position: fixed;
     display: flex;
-    float: left;
+    float: right;
     z-index: 11;
     margin-left: 70%;
     margin-top: 6%;
