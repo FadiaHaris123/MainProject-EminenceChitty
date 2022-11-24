@@ -6,6 +6,7 @@ import LandingPage from "./components/LandingPage"
 import registrationForm from "./UI/registrationForm"
 import foreman from "./components/foreman/foreman"
 import Manager from "./components/foreman/Manager/Manager"
+import Customer from "./components/Customer/Customer"
 
 
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" component={registrationForm}/>
           <Route path="/admin" component={foreman} />
           <Route path="/employee" component={Manager}/>
+          <Route path="/customer" component={Customer}/>
         </Switch>
       </Router>
   )
