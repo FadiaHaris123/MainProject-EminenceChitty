@@ -9,40 +9,24 @@ const Customer =()=>{
     return(
         
         
-    <Fragment>    
-        
-       
+    <div className="bgimg" >
         <div className="header_nav">
-        <Header></Header>
-       
-          <Navigation>
-         
-          </Navigation>
-         
-        </div>
-        
-          <div className="Customer_bg">
-         
-          </div> 
-          
-          <header style={ HeaderStyle }>
-        </header>
-         
-    </Fragment>
+            <Header></Header>
+                <Navigation></Navigation>
+         </div>
+        <div className="imge"> </div>
+                <br></br>
+             <br></br>
+            <div className="about">
+                 <h1>About us</h1>
+                 <br></br>
+                 <p>A unique financial savings scheme, designed to ensure safe savings of your hard earned money. A chitty scheme with insurance coverage and pension plan, software that allows you to join chits, pay installments, and 
+        take part in chitty auction from anywhere, anytime.</p>
+             </div>
+    </div> 
     
    
     )
 }
 export default Customer;
 
-const HeaderStyle = {
-    width: "90%",
-    height: "90vh",
-    // padding: 20% 20% 50% 50%,
-    background: `url(${BackgroundImage})`,
-    backgroundPosition:'fixed',
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "100% 100%",
-    backgroundAttachment: "fixed",
-    
-}
