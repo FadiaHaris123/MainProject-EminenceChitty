@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Montserrat&family=Teko:wght@500&display=swap');
 
 .App {
   text-align: center;
@@ -87,7 +86,7 @@ label {
 }
 
 .overlay{
-  background: linear-gradient(0deg, rgba(16, 15, 16, 0.667),rgba(26, 25, 26, 0.849));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.849));
   height: 100vh;
 }
 
@@ -99,15 +98,30 @@ label {
 
 .main-title {
     padding-top: 10rem;
-    font-size: 5rem;
-    font-family: 'Teko', sans-serif;
+    font-size: 4rem;
+    font-family: 'Lora', serif;
     text-transform: uppercase
 }
 
 .main-para {
-    font-size: 2.5rem;
-    text-Transform: capitalize
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    text-Transform: capitalize;
+    color:rgb(157, 169, 188);
 }
+
+.info{
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  width: 70%;
+  color: #f1f1f1;
+  justify-content: center;
+  padding: 4% 5%;
+  align-items: center;
+  margin-left: 15%;
+}
+
 #log_btn span {
   display: inline-block;
   position: relative;
@@ -166,12 +180,13 @@ right: 0;
   border: none;
   color: rgb(9, 56, 84);
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
   transition: all .5s;
   cursor: pointer;
   text-transform: capitalize;
   border-radius: 30px;
-  box-shadow: 20px 20px 50px rgb(110, 110, 110);
+  box-shadow: 5px 5px 100px rgba(255, 255, 255, 0.642);
 }
 
 

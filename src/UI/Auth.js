@@ -15,6 +15,7 @@ const Auth = (props) => {
   if (authMode === "signin") {
     return (
       <header style={HeaderStyle}>
+        <div className="overlays">
         <div className="Auth-form-container">
           <form className="Auth-form">
             <div className="Auth-form-content">
@@ -55,6 +56,7 @@ const Auth = (props) => {
               </p>
             </div>
           </form>
+        </div>
         </div>
       </header>
     )

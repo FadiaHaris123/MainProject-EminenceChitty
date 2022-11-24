@@ -110,21 +110,23 @@ class Manager extends Component {
 	
 	return (
 		<div className='manage'>
-			<h1>
-			Chitty Manager
+
+			<h1 className='header'>
+				Chitty Manager Details
 			</h1>
-            <div className='anagha'>
-			<h4>
-			Upload employee details
-			</h4>
-			<div>
-            <br></br>
-				<input type="file" onChange={this.onFileChange} />
-				<button onClick={this.onFileUpload}>
-				Upload!
-				</button>
+            <div className='upload'>
+
+				<h4>
+					Upload employee details
+				</h4>
+				<div>
+				<br></br>
+					<input type="file" onChange={this.onFileChange} />
+					<button onClick={this.onFileUpload}>
+						Upload!
+					</button>
 			</div>
-		{this.fileData()}
+			<div className='filedata'>{this.fileData()}</div>
         </div>
 		</div>
 	);
