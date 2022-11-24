@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import Header from "../foreman/Header/Header";
 import ManagerNav from "./ManagerNav";
 import "./ManagerPage.css";
@@ -42,7 +42,7 @@ const ManagerPage = () => {
             }
         setIsLoading(false);
     }, []);
-    let content = <p>No chits found</p>;
+    let content;
 
     if (chits.length > 0) {
         content = <ChitList chits={chits} />;
@@ -67,12 +67,9 @@ const ManagerPage = () => {
             </div> */}
             <div className="button-group">
                 <section>
-                    <button onClick={assignchits}>Assigned Chits</button> {content} 
-                </section>
-               
-                <section>
-                    <button>Manage Chits</button>
-                </section>
+                    <button onClick={assignchits}>Assigned Chits</button> 
+                    {content} 
+                </section>   
                 <section>
                     <button>Notifications</button>
                 </section>
