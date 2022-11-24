@@ -14,8 +14,9 @@ const Option =()=>{
                     <button className='button'><span>Launch</span></button>
                 </td>
                 <td>
+                <Link to="/auction">
                     <button className='button'><span>Auction</span></button>
-
+                    </Link>
                 </td>
             </tr>
             <tr>
