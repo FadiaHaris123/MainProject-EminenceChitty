@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Image from '../assets/images/login.jpg'
 import '../App.css'
-import foreman from "../components/foreman/foreman"
 
 const Auth = (props) => {
 
