@@ -6,11 +6,15 @@ import Option from './Options/Option'
 import './foreman.css'
 
 const foreman =()=>{
-    return(<Fragment>    
-     <Header></Header>
-      <Navigation></Navigation>
-        <Option></Option>  
-        <AvailableChit></AvailableChit>
+    return(
+    <Fragment>    
+        <div className="header_nav">
+        <Header></Header>
+          <Navigation></Navigation>
+        </div>
+          <div className="foreman_bg"><Option></Option> 
+          <AvailableChit></AvailableChit>
+          </div> 
     </Fragment>)
 }
 export default foreman;
