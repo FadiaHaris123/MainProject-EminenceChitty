@@ -27,8 +27,9 @@ const Option =()=>{
                 </td>
                 
                 <td>
+                <Link to="/auction">
                     <button className='button'><span>Auction</span></button>
-
+                    </Link>
                 </td>
             </tr>
             <tr>
