@@ -4,13 +4,13 @@ import Axios from 'axios';
 
 import Image from '../assets/images/joinus.jpg'
 const Auth = (props) => {
-const url = "http://localhost:8080/api/user_profile"
+const url = "http://localhost:8080/api/user-profile"
 const [data,setData] = useState({
   firstName:"",
   lastName:"",
   email:"",
   mobileNo:"",
-  password:""
+  passWord:""
 })
 
 function handle(e){
