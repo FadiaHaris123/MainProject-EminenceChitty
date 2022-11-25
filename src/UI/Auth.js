@@ -146,6 +146,7 @@ const Auth = (props) => {
                   }`}>
                   <label>Email address</label>
                   <input
+                    id="email"
                     type="email"
                     className="form-control mt-1"
                     placeholder="Enter email"
@@ -169,18 +170,14 @@ const Auth = (props) => {
                   />
                 </div>
               </div>
-              {/* <Link to="/admin"> */}
                 <div className="submitButton">
                   <button id="submitButton" type="submit" disabled={!formIsValid}  onClick={loginHandler}>
                     Submit
                   </button>
                 </div>
-              {/* </Link> */}
-              {/* <Link to = "/forgetpassword"> */}
               <p className="text-center mt-2">
                 Forgot <a href="#">password?</a>
               </p>
-              {/* </Link> */}
             </div>
           </form>
         </div>
@@ -189,13 +186,6 @@ const Auth = (props) => {
     )
   }
 }
-
-  // return (
-  //   <header style={HeaderStyle}>
-  //     <registrationForm/>
-  //   </header>
-  // )
-
 
 const HeaderStyle = {
   width: "210vh",
