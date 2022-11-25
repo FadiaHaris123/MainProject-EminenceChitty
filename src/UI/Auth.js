@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useReducer } from "react"
-import { Link } from "react-router-dom"
+import { Link,useHistory } from "react-router-dom"
 import Image from '../assets/images/login.jpg'
 import '../App.css'
+import './Auth.css'
 
 import classes from './Login.module.css';
 import foreman from "../components/foreman/foreman"
@@ -72,6 +73,7 @@ const Auth = (props) => {
 
 
   ///************ useEffect returning cleanup function ***************///
+
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("validity check");
@@ -107,12 +109,26 @@ const Auth = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     props.onLogin(emailCurrentState.enteredEmail, passwordCurrentState.enteredPassword);
-    // if(emailCurrentState.enteredEmail == "admin@exp"){
-    //   <Link to = "/admin"></Link>
-    // }
   };
-  // const login = ()
+
+  let [mail, setMailMode] = useState("")
+  const history = useHistory();
+ 
   if (authMode === "signin") {
+
+    const loginHandler = () => {
+      console.log(emailCurrentState.enteredEmail);
+      setMailMode (emailCurrentState.enteredEmail);
+      if(mail.includes("admin@exp")) {
+        history.push("/admin");
+      }if (mail.includes("manager@exp")) {
+        history.push("/manager");
+      }
+      if(mail.includes("customer@exp")){
+        history.push("/customer");
+      }
+    }
+
     return (
       <header style={HeaderStyle}>
         <div className="overlays">
@@ -156,13 +172,13 @@ const Auth = (props) => {
                   />
                 </div>
               </div>
-              <Link to="/admin">
-                <div className="d-grid gap-2 mt-3">
-                  <button type="submit" disabled={!formIsValid}>
+              {/* <Link to="/admin"> */}
+                <div className="submitButton">
+                  <button id="submitButton" type="submit" disabled={!formIsValid}  onClick={loginHandler}>
                     Submit
                   </button>
                 </div>
-              </Link>
+              {/* </Link> */}
               {/* <Link to = "/forgetpassword"> */}
               <p className="text-center mt-2">
                 Forgot <a href="#">password?</a>

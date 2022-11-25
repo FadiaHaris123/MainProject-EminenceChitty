@@ -1,7 +1,5 @@
 .forms button{
     position: absolute;
-   
-
     border: none;
     border-radius: 50px;
     background-color: #e100ff;
@@ -27,7 +25,6 @@ select,input {
 
     /* styling */
     background-color: white;
-    border: thin solid blue;
     border-radius: 4px;
     display: inline-block;
     width: 50%;
