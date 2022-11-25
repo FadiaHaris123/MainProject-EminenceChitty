@@ -1,16 +1,14 @@
-import React, { useEffect, useState , useReducer } from "react"
-import { Link } from "react-router-dom"
-import { useHistory } from "react-router-dom";
-
+import React, { useEffect, useState, useReducer } from "react"
+import { Link,useHistory } from "react-router-dom"
 import Image from '../assets/images/login.jpg'
 import '../App.css'
+import './Auth.css'
 
 import classes from './Login.module.css';
 import foreman from "../components/foreman/foreman"
 
 const Auth = (props) => {
-  // let navigate = useHistory();
-  const history = useHistory();
+  
   let [authMode, setAuthMode] = useState("signin")
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -74,6 +72,7 @@ const Auth = (props) => {
 
 
   ///************ useEffect returning cleanup function ***************///
+
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("validity check");
@@ -109,17 +108,14 @@ const Auth = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     props.onLogin(emailCurrentState.enteredEmail, passwordCurrentState.enteredPassword);
-    // if(emailCurrentState.enteredEmail == "admin@exp"){
-    //   <Link to = "/admin"></Link>
-    // }
   };
-  // const login = ()
+
   let [mail, setMailMode] = useState("")
-  
+  const history = useHistory();
+ 
   if (authMode === "signin") {
-    
-   
-    const login = () => {
+
+    const loginHandler = () => {
       setMailMode (emailCurrentState.enteredEmail);
       if(mail.includes("admin@exp")) {
         history.push("/admin");
@@ -174,8 +170,8 @@ const Auth = (props) => {
                 </div>
               </div>
               {/* <Link to="/admin"> */}
-                <div className="d-grid gap-2 mt-3">
-                  <button type="submit" disabled={!formIsValid} onClick = {login}>
+                <div className="submitButton">
+                  <button id="submitButton" type="submit" disabled={!formIsValid}  onClick={loginHandler}>
                     Submit
                   </button>
                 </div>

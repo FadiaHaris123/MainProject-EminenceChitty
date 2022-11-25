@@ -28,7 +28,7 @@ const Chit = (props) => {
                 days: data[key].days,
                 members: data[key].members,
                 startDate: data[key].startDate,
-            });
+            }); break;
         }
         
         setChit(loadedChit);
@@ -55,7 +55,7 @@ if (isLoading) {
       <h2>{props.chitType}</h2>
       <h3>Chit No. :{props.chitNumber}</h3>
       <p>₹{props.amount}</p>
-      <button onClick={managechits}>Manage Chit</button>
+      <button className="manager-button-groups" onClick={managechits}>Manage Chit</button>
       {content} 
     </li>
     </div>
