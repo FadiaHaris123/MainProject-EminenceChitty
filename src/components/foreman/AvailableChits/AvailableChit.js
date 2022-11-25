@@ -44,7 +44,6 @@ const AvailableChit =()=>{
 
   
 
-
   if (isLoading) {
     return (
       <section className="chitsLoading">
