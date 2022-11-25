@@ -17,7 +17,7 @@ function App() {
           <Route path="/register" component={registrationForm}/>
           <Route path="/admin" component={foreman} />
           <Route path="/employee" component={Manager}/>
-        </Switch>
+</Switch>
       </Router>
   )
 }
