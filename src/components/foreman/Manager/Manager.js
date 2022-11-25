@@ -1,10 +1,5 @@
-import axios from 'axios';
-import { Button } from 'bootstrap';
 import React, { Component } from 'react';
 import './Manager.css'
-
-
-
 
 class Manager extends Component {
 

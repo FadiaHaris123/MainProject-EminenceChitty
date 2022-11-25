@@ -1,15 +1,16 @@
 import { Fragment } from "react";
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import Header from "../foreman/Header/Header";
 import ManagerNav from "./ManagerNav";
 import "./ManagerPage.css";
 import ChitList from './ChitList';
 
-
 const ManagerPage = () => {
     const [chits, setChit] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+
+    
 
     const assignchits = useCallback(async () => {
         setIsLoading(true);
@@ -42,7 +43,7 @@ const ManagerPage = () => {
             }
         setIsLoading(false);
     }, []);
-    let content = <p>No chits found</p>;
+    let content;
 
     if (chits.length > 0) {
         content = <ChitList chits={chits} />;
@@ -61,20 +62,13 @@ const ManagerPage = () => {
                 <Header></Header>
                 <ManagerNav></ManagerNav>
             </div>
-            {/* <div className="manager_class">
-                <img src={Image}></img>
-                <p>Hi manager</p>
-            </div> */}
-            <div className="button-group">
-                <section>
-                    <button onClick={assignchits}>Assigned Chits</button> {content} 
-                </section>
-               
-                <section>
-                    <button>Manage Chits</button>
-                </section>
-                <section>
-                    <button>Notifications</button>
+            <div className="manager-div-groups">
+                <section className="manager-section-groups">
+                    <button className="manager-button-groups" onClick={assignchits}>Assigned Chits</button> 
+                    {content} 
+                </section>   
+                <section className="manager-section-groups">
+                    <button className="manager-button-groups">Notifications</button>
                 </section>
             </div>
         </Fragment>)

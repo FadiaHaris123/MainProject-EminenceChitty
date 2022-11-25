@@ -8,8 +8,7 @@ import classes from './Login.module.css';
 import foreman from "../components/foreman/foreman"
 
 const Auth = (props) => {
-
-
+  
   let [authMode, setAuthMode] = useState("signin")
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -117,7 +116,6 @@ const Auth = (props) => {
   if (authMode === "signin") {
 
     const loginHandler = () => {
-      console.log(emailCurrentState.enteredEmail);
       setMailMode (emailCurrentState.enteredEmail);
       if(mail.includes("admin@exp")) {
         history.push("/admin");
@@ -128,7 +126,6 @@ const Auth = (props) => {
         history.push("/customer");
       }
     }
-
     return (
       <header style={HeaderStyle}>
         <div className="overlays">
@@ -149,6 +146,7 @@ const Auth = (props) => {
                   }`}>
                   <label>Email address</label>
                   <input
+                    id="email"
                     type="email"
                     className="form-control mt-1"
                     placeholder="Enter email"
@@ -172,18 +170,14 @@ const Auth = (props) => {
                   />
                 </div>
               </div>
-              {/* <Link to="/admin"> */}
                 <div className="submitButton">
                   <button id="submitButton" type="submit" disabled={!formIsValid}  onClick={loginHandler}>
                     Submit
                   </button>
                 </div>
-              {/* </Link> */}
-              {/* <Link to = "/forgetpassword"> */}
               <p className="text-center mt-2">
                 Forgot <a href="#">password?</a>
               </p>
-              {/* </Link> */}
             </div>
           </form>
         </div>
@@ -191,12 +185,6 @@ const Auth = (props) => {
       </header>
     )
   }
-
-  // return (
-  //   <header style={HeaderStyle}>
-  //     <registrationForm/>
-  //   </header>
-  // )
 }
 
 const HeaderStyle = {
