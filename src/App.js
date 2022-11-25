@@ -10,7 +10,6 @@ import Customer from "./components/Customer/Customer"
 import LandingPage from "./components/LandingPage/LandingPage"
 
 
-
 function App() {
   return (
       <Router>
@@ -20,6 +19,7 @@ function App() {
           <Route path="/register" component={registrationForm}/>
           <Route path="/admin" component={foreman} />
           <Route path="/employee" component={Manager}/>
+</Switch>
           <Route path="/manager" component={ManagerPage}/>
           <Route path="/customer" component={Customer}/>
         </Switch>

@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
 import './Option.css'
+
+const Option = () => {
+    return (
+
 import { Fragment, useState } from 'react';
 import Modal from '../Launch/Modal';
 
@@ -12,6 +16,7 @@ const Option =()=>{
     
     console.log("onClicked");
     return(<Fragment>
+
 
         <table>
             {/* Quick Action */}
@@ -37,8 +42,6 @@ const Option =()=>{
                     <Link to="/employee">
                         <button className='button'><span>Employees</span></button>
                     </Link>
-
-                 
                 </td>
                 <td>
                     <button className='button'><span>Earnings</span></button>
