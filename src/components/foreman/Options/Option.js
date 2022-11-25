@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import './Option.css'
-
-const Option = () => {
-    return (
-
 import { Fragment, useState } from 'react';
 import Modal from '../Launch/Modal';
+
+
+
+
+
 
 const Option =()=>{
 
