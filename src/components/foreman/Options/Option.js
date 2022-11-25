@@ -3,23 +3,18 @@ import './Option.css'
 import { Fragment, useState } from 'react';
 import Modal from '../Launch/Modal';
 
+
 const Option =()=>{
 
     const [openModal, setOpenModal] = useState(false);
-    
-    // setOpenModal(true).style.blur('4');
-   
-    
     console.log("onClicked");
-    return(<Fragment>
-
+    return(
+    <Fragment>
         <table>
-            {/* Quick Action */}
             <tbody>
-
             <tr>
                 <td>
-                    <button className='button' onClick={()=>{setOpenModal(true);}}><span>Launch</span></button>
+                    <button className='button' onClick={()=>{setOpenModal(true)}}><span>Launch</span></button>
                    {openModal && <Modal closeModal={setOpenModal}/> } 
                 </td>
                 
@@ -34,8 +29,6 @@ const Option =()=>{
                     <Link to="/employee">
                         <button className='button'><span>Employees</span></button>
                     </Link>
-
-                 
                 </td>
                 <td>
                     <button className='button'><span>Earnings</span></button>
