@@ -2,10 +2,12 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "./App.css"
 import {BrowserRouter as Router,Switch, Route } from "react-router-dom"
 import Auth from "./UI/Auth"
-import LandingPage from "./components/LandingPage"
 import registrationForm from "./UI/registrationForm"
 import foreman from "./components/foreman/foreman"
 import Manager from "./components/foreman/Manager/Manager"
+import ManagerPage from "./components/Manager/ManagerPage"
+import Customer from "./components/Customer/Customer"
+import LandingPage from "./components/LandingPage/LandingPage"
 
 
 function App() {
@@ -18,6 +20,9 @@ function App() {
           <Route path="/admin" component={foreman} />
           <Route path="/employee" component={Manager}/>
 </Switch>
+          <Route path="/manager" component={ManagerPage}/>
+          <Route path="/customer" component={Customer}/>
+        </Switch>
       </Router>
   )
 }
