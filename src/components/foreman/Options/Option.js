@@ -19,11 +19,8 @@ const Option =()=>{
 
             <tr>
                 <td>
-
-
                     <button className='button' onClick={()=>{setOpenModal(true);}}><span>Launch</span></button>
                    {openModal && <Modal closeModal={setOpenModal}/> } 
-                   
                 </td>
                 
                 <td>

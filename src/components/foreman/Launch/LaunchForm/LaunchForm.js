@@ -31,7 +31,6 @@ const LaunchForm = () => {
     }
 
     return (
-        // <form onSubmit={handleSubmit}>
             <div className="forms">
 
                 <select className="minimal" value={inputs.Chitty} onChange={handleChange}>
@@ -59,8 +58,6 @@ const LaunchForm = () => {
 
                 </select><br /><br />
 
-
-
                 <select id="amount" className="minimal" value={inputs.employee} onChange={handleChange}>
                     <option name="Select Amount" value="">Amount</option>
                     <option name="10000" value="10000">10000</option>
@@ -70,29 +67,16 @@ const LaunchForm = () => {
 
                 </select><br /><br />
 
-
-
                 <input
-
                     name="total"
                     value={totalPrize}
                     placeholder="Total Prize"
 
                 />
-
-
-
                 <button type="submit">
                     Launch
                 </button>
             </div>
-
-
-
-
-        // </form>
-
-
     )
 }
 
