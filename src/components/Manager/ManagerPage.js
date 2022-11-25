@@ -1,16 +1,9 @@
 import { Fragment } from "react";
-// import  Notifications  from 'react-notifications-component'
-import Notifications from './Notification'
 import React, { useState, useCallback } from 'react';
 import Header from "../foreman/Header/Header";
 import ManagerNav from "./ManagerNav";
 import "./ManagerPage.css";
 import ChitList from './ChitList';
-const Example = () => {
-    return (
-        <Notifications/>
-    );
-  };
 
 const ManagerPage = () => {
     const [chits, setChit] = useState([]);
@@ -75,7 +68,7 @@ const ManagerPage = () => {
                     {content} 
                 </section>   
                 <section className="manager-section-groups">
-                    <button className="manager-button-groups" onClick={Example}>Notifications</button>
+                    <button className="manager-button-groups">Notifications</button>
                 </section>
             </div>
         </Fragment>)
