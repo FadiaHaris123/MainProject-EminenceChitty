@@ -8,8 +8,7 @@ import classes from './Login.module.css';
 import foreman from "../components/foreman/foreman"
 
 const Auth = (props) => {
-
-
+  
   let [authMode, setAuthMode] = useState("signin")
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -117,7 +116,6 @@ const Auth = (props) => {
   if (authMode === "signin") {
 
     const loginHandler = () => {
-      console.log(emailCurrentState.enteredEmail);
       setMailMode (emailCurrentState.enteredEmail);
       if(mail.includes("admin@exp")) {
         history.push("/admin");
@@ -128,7 +126,6 @@ const Auth = (props) => {
         history.push("/customer");
       }
     }
-
     return (
       <header style={HeaderStyle}>
         <div className="overlays">
@@ -191,13 +188,14 @@ const Auth = (props) => {
       </header>
     )
   }
+}
 
   // return (
   //   <header style={HeaderStyle}>
   //     <registrationForm/>
   //   </header>
   // )
-}
+
 
 const HeaderStyle = {
   width: "210vh",
