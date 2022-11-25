@@ -1,21 +1,27 @@
 import { Link } from 'react-router-dom';
 import './Option.css'
+import { Fragment, useState } from 'react';
+import Modal from '../Launch/Modal';
+
 
 const Option =()=>{
+
+    const [openModal, setOpenModal] = useState(false);
+    console.log("onClicked");
     return(
-
+    <Fragment>
         <table>
-            {/* Quick Action */}
-
+            <tbody>
             <tr>
                 <td>
-
-
-                    <button className='button'><span>Launch</span></button>
+                    <button className='button' onClick={()=>{setOpenModal(true)}}><span>Launch</span></button>
+                   {openModal && <Modal closeModal={setOpenModal}/> } 
                 </td>
+                
                 <td>
+                <Link to="/auction">
                     <button className='button'><span>Auction</span></button>
-
+                    </Link>
                 </td>
             </tr>
             <tr>
@@ -23,15 +29,15 @@ const Option =()=>{
                     <Link to="/employee">
                         <button className='button'><span>Employees</span></button>
                     </Link>
-
-                 
                 </td>
                 <td>
                     <button className='button'><span>Earnings</span></button>
 
                 </td>
             </tr>
+            </tbody>
         </table>
+        </Fragment>
     )
 
 }
