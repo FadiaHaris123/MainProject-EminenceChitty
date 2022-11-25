@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ChitDetail from './ChitDetail';
+import ManageChit from './ManageChit'
 import classes from './ChitList.module.css';
 
 const ChitManage = (props) => {
   return (
     <ul className={classes['chits-list']}> 
       {props.chits.map((chit) => (
-        <ChitDetail
+        <ManageChit
           amount={chit.amount}
           chitNumber={chit.chitNumber}
           chitType={chit.chitType}
