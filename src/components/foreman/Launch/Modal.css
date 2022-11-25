@@ -1,17 +1,16 @@
 .modalBackground{
     position: fixed;
-    width: 36%;
-    height: 71%;
-    z-index: 1040;
-    top: 20%;
-    left: 34%;
-    background-color: rgb(66, 248, 148);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 3%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(179, 185, 182);
+    opacity: 0.4;
+    z-index: 1000;
 }
 
 .modalContainer{
+    position: fixed;
     width: 500px;
     height: 500px;
     border-radius: 12px;
@@ -20,6 +19,10 @@
     display: flex;
     flex-direction: column;
     padding: 25px;
+    top: 55%;
+    left: 53%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
 }
 .modalContainer .title{
     display: inline-block;
@@ -44,7 +47,7 @@
     cursor: pointer;
     outline: none;
     box-shadow:none;
-    top: 90%;
+    top: 84%;
     left: 55%;
     
 }
