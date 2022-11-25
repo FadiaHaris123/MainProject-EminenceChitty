@@ -1,5 +1,7 @@
-import React, { useEffect, useState, useReducer } from "react"
+import React, { useEffect, useState , useReducer } from "react"
 import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom";
+
 import Image from '../assets/images/login.jpg'
 import '../App.css'
 
@@ -7,8 +9,8 @@ import classes from './Login.module.css';
 import foreman from "../components/foreman/foreman"
 
 const Auth = (props) => {
-
-
+  // let navigate = useHistory();
+  const history = useHistory();
   let [authMode, setAuthMode] = useState("signin")
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -112,7 +114,22 @@ const Auth = (props) => {
     // }
   };
   // const login = ()
+  let [mail, setMailMode] = useState("")
+  
   if (authMode === "signin") {
+    
+   
+    const login = () => {
+      setMailMode (emailCurrentState.enteredEmail);
+      if(mail.includes("admin@exp")) {
+        history.push("/admin");
+      }if (mail.includes("manager@exp")) {
+        history.push("/manager");
+      }
+      if(mail.includes("customer@exp")){
+        history.push("/customer");
+      }
+    }
     return (
       <header style={HeaderStyle}>
         <div className="overlays">
@@ -156,13 +173,13 @@ const Auth = (props) => {
                   />
                 </div>
               </div>
-              <Link to="/admin">
+              {/* <Link to="/admin"> */}
                 <div className="d-grid gap-2 mt-3">
-                  <button type="submit" disabled={!formIsValid}>
+                  <button type="submit" disabled={!formIsValid} onClick = {login}>
                     Submit
                   </button>
                 </div>
-              </Link>
+              {/* </Link> */}
               {/* <Link to = "/forgetpassword"> */}
               <p className="text-center mt-2">
                 Forgot <a href="#">password?</a>
@@ -175,13 +192,14 @@ const Auth = (props) => {
       </header>
     )
   }
+}
 
   // return (
   //   <header style={HeaderStyle}>
   //     <registrationForm/>
   //   </header>
   // )
-}
+
 
 const HeaderStyle = {
   width: "210vh",

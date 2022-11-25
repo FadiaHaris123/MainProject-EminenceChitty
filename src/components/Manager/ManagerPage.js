@@ -65,7 +65,7 @@ const ManagerPage = () => {
                 <img src={Image}></img>
                 <p>Hi manager</p>
             </div> */}
-            <div className="button-group">
+            <div className="button-groups">
                 <section>
                     <button onClick={assignchits}>Assigned Chits</button> 
                     {content} 

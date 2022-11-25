@@ -17,7 +17,7 @@ const Chit = (props) => {
         }
 
         const data = await response.json();
-
+        
         const loadedChit = [];
         for (let key in data) {
             loadedChit.push({
@@ -28,17 +28,16 @@ const Chit = (props) => {
                 days: data[key].days,
                 members: data[key].members,
                 startDate: data[key].startDate,
-            });  break;
+            });
         }
-
+        
         setChit(loadedChit);
     } catch (error) {
         setError(error.message);
         }
     setIsLoading(false);
 }, []);
-let content;
-
+let content;    
 if (chits.length > 0) {
     content = <ChitManage chits={chits} />;
 }
