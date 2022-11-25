@@ -1,6 +1,9 @@
 import axios from 'axios';
+import { Button } from 'bootstrap';
 import React, { Component } from 'react';
 import './Manager.css'
+
+
 
 
 class Manager extends Component {
@@ -38,10 +41,10 @@ class Manager extends Component {
 	fileData = () => {
 		if (this.state.selectedFile) {
 			return (
-				<div>
+				<div className='detailsShown'>
 					<h6>File Details:</h6>
 					<p>File Name: {this.state.selectedFile.name}</p>
-					<p>File Type: {this.state.selectedFile.type}</p>
+					{/* <p>File Type: {this.state.selectedFile.type}</p> */}
 					<p>
 						Last Modified:{" "}
 						{this.state.selectedFile.lastModifiedDate.toDateString()}
@@ -58,6 +61,8 @@ class Manager extends Component {
 		}
 	};
 
+
+	
 	render() {
 		return (
 			<div className='manage'>
@@ -76,6 +81,7 @@ class Manager extends Component {
 						</button>
 					</div>
 					<div className='filedata'>{this.fileData()}</div>
+					<button>Show</button>
 				</div>
 			</div>
 		);

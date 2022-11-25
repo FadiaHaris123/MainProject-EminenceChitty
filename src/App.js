@@ -10,7 +10,6 @@ import Customer from "./components/Customer/Customer"
 import LandingPage from "./components/LandingPage/LandingPage"
 
 
-
 function App() {
   return (
       <Router>

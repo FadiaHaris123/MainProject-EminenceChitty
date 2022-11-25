@@ -18,20 +18,11 @@ const LaunchForm = () => {
         event.preventDefault();
         console.log(inputs);
     }
-    const totalPrize = () => {
-        const months = document.getElementById("month").value;
-        const amount = document.getElementById("amount").value;
-        var totalPrize = months + amount;
-        console.log(months);
-        console.log(amount);
-        console.log(totalPrize);
-        return totalPrize;
 
-
-    }
+   
 
     return (
-        // <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className="forms">
 
                 <select className="minimal" value={inputs.Chitty} onChange={handleChange}>
@@ -50,7 +41,7 @@ const LaunchForm = () => {
                 </select><br /><br />
 
 
-                <select id="month" className="minimal" onChange={handleChange}>
+                <select id="month" className="minimal" >
                     <option name="Select Months" value="">Installment</option>
                     <option name="100" value="100">100 Months</option>
                     <option name="50" value="50">50 Months</option>
@@ -75,7 +66,7 @@ const LaunchForm = () => {
                 <input
 
                     name="total"
-                    value={totalPrize}
+                    // value={totalPrize}
                     placeholder="Total Prize"
 
                 />
@@ -90,7 +81,7 @@ const LaunchForm = () => {
 
 
 
-        // </form>
+        </form>
 
 
     )
