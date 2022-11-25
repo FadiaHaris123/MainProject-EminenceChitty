@@ -1,72 +1,187 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 import './LaunchForm.css'
 
 const LaunchForm = () => {
 
-    const [chittyName,setChittyName] = useState("")
-    const [employee,setEmployee] = useState("")
-    const [installments,setInstallments] = useState(0)
-    const [amount,setAmount] = useState(0)
-    const [totalAmount,setTotalAmount] = useState(0)
+    const [chittyCategory, setChittyCategory] = useState("")
+    const [employee, setEmployee] = useState("")
+    const [installments, setInstallments] = useState(0)
+    const [amount, setAmount] = useState(0)
+    const [totalAmount, setTotalAmount] = useState(0)
+
+    const [manager, setManager] = useState([]);
+    const [category, setCategory] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [httpError, setHttpError] = useState();
+
+    useEffect(() => {
+        const fetchEmployees = async () => {
+          const response = await fetch(
+            'http://localhost:8080/api/managers'
+          );
+    
+          if (!response.ok) {
+            throw new Error('Something went wrong!');
+          }
+    
+          const responseData = await response.json();
+    
+          const loadedManager = [];
+          const newItemList = [...responseData._embedded.manager]
+          for (const key in newItemList) {
+            loadedManager.push({
+              id: key,
+              firstName: newItemList[key].firstName,
+              emp_lastname: newItemList[key].emp_lastname,
+              email: newItemList[key].email,
+            });
+          }
+    
+          setManager(loadedManager);
+          setIsLoading(false);
+        };
+    
+        fetchEmployees().catch((error) => {
+          setIsLoading(false);
+          setHttpError(error.message);
+        });
+      }, []);
+
+      useEffect(() => {
+        const fetchChittyCategory = async () => {
+          const response = await fetch(
+            'http://localhost:8080/api/chittyCategory'
+          );
+    
+          if (!response.ok) {
+            throw new Error('Something went wrong!');
+          }
+    
+          const responseData = await response.json();
+    
+          const loadedCategory = [];
+          const newItemList = [...responseData._embedded.chittyCategory]
+          for (const key in newItemList) {
+            loadedCategory.push({
+              id: key,
+              category_name: newItemList[key].categoryName,
+            
+            });
+          }
+      
+          
+    
+          setCategory(loadedCategory);
+          
+          setIsLoading(false);
+        };
+        
+        fetchChittyCategory().catch((error) => {
+          setIsLoading(false);
+          setHttpError(error.message);
+        });
+      }, []);
+      if (isLoading) {
+        return (
+         
+            <h1>Loading...</h1>
+         
+        );
+      }
+    
+      if (httpError) {
+        return (
+         
+            <h1>{httpError}</h1>
+        
+        );
+      }
+      
+    
+      const handleChange = (event) =>{
+        setEmployee(event.target.value);
+    }
+    const handleChanger = (event) =>{
+        setChittyCategory(event.target.value);
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
     }
 
-    const installmentsHandler = (event) =>{
+    const installmentsHandler = (event) => {
         setInstallments(parseInt(event.target.value))
         console.log(event.target.value)
     }
 
-    const amountHandler = (event) =>{
+    const amountHandler = (event) => {
         setAmount(parseInt(event.target.value))
         console.log(event.target.value)
     }
 
-    const totalAmountHandler = () =>{
+    const totalAmountHandler = () => {
         setTotalAmount(parseInt(installments * amount))
-        console.log(parseInt(installments+amount))
+        console.log(parseInt(installments + amount))
     }
-   
+
+
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="forms">
 
-                <select className="minimal" value={chittyName}>
-                    <option name="Category" value="">Chitty Category</option>
-                    <option name="Chitty" value="Festival Chitty">Festival Chitty</option>
-                    <option name="Chitty" value="Single-Divisional Chitty">Single-Divisional Chitty</option>
-                    <option name="Chitty" value="Multi-Divisional Chitty">Multi-Divisional Chitty</option>
+
+                <select className="minimal" value={chittyCategory} onChange={handleChanger}>
+                    <option>Select Chitty Category</option>
+                {category.map(category=> (
+              <option value={category.category_name}>{category.category_name}</option>
+    
+              ))
+              }
                 </select><br /><br />
-                <select className="minimal" value={employee}>
-                    <option name="Select Employee" value="">Employee</option>
-                    <option name="employee" value="Employee 1">Employee 1</option>
-                    <option name="employee" value="Employee 2">Employee 2</option>
+
+                <select className="minimal" value={employee} onChange={handleChange}>
+                    <option>Select Employee</option>
+                {manager.map(manager => (
+              <option value={manager.firstName}>{manager.firstName}</option>
+    
+              ))
+              }
                 </select><br /><br />
+             
                 <select id="month" value={installments} className="minimal" onChange={installmentsHandler}>
-                    <option name="Select Months" value="">Installment</option>
+                    <option name="Select Months" value="">Select Installment</option>
                     <option name="100" value="100">100 Months</option>
                     <option name="50" value="50">50 Months</option>
                     <option name="40" value="40">40 Months</option>
                     <option name="30" value="30">30 Months</option>
                 </select><br /><br />
                 <select id="amount" className="minimal" value={amount} onChange={amountHandler}>
-                    <option name="Select Amount" value="">Amount</option>
+                    <option name="Select Amount" value="">Select Amount</option>
                     <option name="10000" value="10000">10000</option>
                     <option name="5000" value="5000">5000</option>
                     <option name="4000" value="4000">4000</option>
                     <option name="2500" value="2500">2500</option>
                 </select><br /><br />
-                <input
-                    name="total"
-                    placeholder="Total Prize"
-                    value={totalAmount}
-                    onClick={totalAmountHandler}
-                    readOnly
-                />
+
+                {totalAmount ? (
+                    <input
+                        name="total"
+                        value={totalAmount}
+                        onClick={totalAmountHandler}
+                        readOnly
+                    ></input>
+                ) : (
+                    <input
+                        name="total"
+                        value="Total Prize"
+                        onClick={totalAmountHandler}
+                        readOnly
+                    ></input>
+                )}
+              
                 <button type="submit">
                     Launch
                 </button>
