@@ -1,0 +1,50 @@
+.modalBackground{
+    position: fixed;
+    width: 36%;
+    height: 71%;
+    z-index: 1040;
+    top: 20%;
+    left: 34%;
+    background-color: rgb(66, 248, 148);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modalContainer{
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0,0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.modalContainer .title{
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+#cancelBtn {
+   
+    position: absolute; 
+    border: none;
+    border-radius: 50px;
+    background-color: crimson;
+    color: #f1eded;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    box-shadow:none;
+    top: 90%;
+    left: 55%;
+    
+}
