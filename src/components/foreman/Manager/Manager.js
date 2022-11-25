@@ -1,33 +1,28 @@
-import axios from 'axios';
-import { Button } from 'bootstrap';
-import React, { Component } from 'react';
+
+import React, { useState } from 'react';
+import ManagerDetails from '../ManagerDetails/ManagerDetails';
 import './Manager.css'
 
 
 
 
-class Manager extends Component {
-
-	state = {
-		// Initially, no file is selected 
-		selectedFile: null
-	};
+const Manager = () => {
+	
+	const [selectedFile,setState] = useState(null);
 
 	// On file select (from the pop up) 
-	onFileChange = event => {
+	const onFileChange = event => {
 	// Update the state 
-		this.setState({ selectedFile: event.target.files[0] });
+		setState(event.target.files[0]);
 	};
 
 
-	onFileUpload = (e) => {
+	const onFileUpload = (e) => {
 		e.preventDefault();
-		this.setState({
-			selectedFile: e.target.files
-		});
+		setState(e.target.files);
 
 		const formData = new FormData();
-		formData.append('file', this.state.selectedFile);
+		formData.append('file',selectedFile);
 		fetch('http://localhost:8080/chitty/upload', {method: 'post',body: formData})
 		.then(res => {
 			if (res.ok) {
@@ -38,16 +33,16 @@ class Manager extends Component {
 	};
 
 	
-	fileData = () => {
-		if (this.state.selectedFile) {
+	const fileData = () => {
+		if (selectedFile) {
 			return (
 				<div className='detailsShown'>
 					<h6>File Details:</h6>
-					<p>File Name: {this.state.selectedFile.name}</p>
+					<p>File Name: {selectedFile.name}</p>
 					{/* <p>File Type: {this.state.selectedFile.type}</p> */}
 					<p>
 						Last Modified:{" "}
-						{this.state.selectedFile.lastModifiedDate.toDateString()}
+						{selectedFile.lastModifiedDate.toDateString()}
 					</p>
 				</div>
 			);
@@ -61,9 +56,9 @@ class Manager extends Component {
 		}
 	};
 
+	const [openModal, setOpenModal] = useState(false);
 
 	
-	render() {
 		return (
 			<div className='manage'>
 				<h1 className='header'>
@@ -75,18 +70,19 @@ class Manager extends Component {
 					</h4>
 					<div>
 						<br></br>
-						<input type="file" onChange={this.onFileChange} />
-						<button onClick={this.onFileUpload}>
+						<input type="file" onChange={onFileChange} />
+						<button onClick={onFileUpload}>
 							Upload!
 						</button>
 					</div>
-					<div className='filedata'>{this.fileData()}</div>
-					<button>Show</button>
+					<div className='filedata'>{fileData()}</div>
+					<button onClick={()=>{setOpenModal(true)}}>Show</button>
+					{openModal && <ManagerDetails closeModal={setOpenModal}/>} 
 				</div>
 			</div>
 		);
 	}
-}
+
 
 export default Manager;
 
