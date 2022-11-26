@@ -36,6 +36,7 @@ const ManagerPage = () => {
 
             const loadedChit = [];
 
+
             const newItemList = [...data._embedded.chittyaccountdetails]
 
 
