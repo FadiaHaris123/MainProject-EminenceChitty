@@ -1,30 +1,18 @@
-/* .header_nav{
-    display: flex;
-     justify-content: space-between;
-     align-items: center;
-     
-} */
 
-#dropdown
-{
-    color: #192d44;
-
-}
-
-.bgimg .imge
+.bgimg  .imge
 {
     background-image: url('./customer3.jpg');
     background-size: cover;
-    height: 100vh;
-    width:209vh;
+    height: 120vh;
+    width:210vh;
 
- 
-  margin-top: 70px;
-  margin-bottom:4px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-bottom: 0%;
   
+  margin-top: 20px;
+  margin-bottom:4px;
+  margin-left: 0px;
+  margin-right: 7px;
+  padding-bottom: 30%;
+
   background-repeat:no-repeat; 
 }
 
@@ -35,7 +23,13 @@
 
 }
 
-.bgimg .about{
+.bgimg .about
+{
+height:30rem;
+width:60rem;
+align-content: center;
+margin-left:50px;
+
     
 }
 .bgimg .about h1{
@@ -48,15 +42,84 @@
 
 .bgimg .about p{
 
-    border:2px solid rgb(133, 137, 143);
+    border:2px solid rgb(249, 246, 246);
     /* box-shadow: rgb(29, 91, 107); */
+    box-shadow: rgb(140, 52, 52);
     border-style:ridge;
     border-radius: 10px;
     padding:2rem 6rem 10rem 2rem;
-    margin-left: 3rem;
-    margin-right:3rem;
+    margin-left: 9rem;
+    margin-right:9rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
     font-style: oblique;
 
+}
+
+.bgimg .services
+{
+height:30rem;
+width:60rem;
+align-content: center;
+margin-left:50px;
+
+    
+}
+
+.bgimg .services h1{
+    color:rgb(38, 87, 133);
+    text-align: center;
+    font-style: oblique;
+    /* font-family: 'Nunito', sans-serif; */
+    
+}
+
+
+.bgimg .products p{
+
+    border:2px solid rgb(217, 220, 225);
+    /* box-shadow: rgb(29, 91, 107); */
+    border-style:ridge;
+    border-radius: 10px;
+    padding:2rem 6rem 10rem 2rem;
+    margin-left: 9rem;
+    margin-right:9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-style: oblique;
+
+}
+
+.bgimg .products h1{
+    color:rgb(38, 87, 133);
+    text-align: center;
+    font-style: oblique;
+    /* font-family: 'Nunito', sans-serif; */
+    
+}
+
+
+.bgimg .services p{
+
+    border:2px hidden rgb(243, 235, 242);
+    /* box-shadow: rgb(29, 91, 107); */
+    border-style:ridge;
+    border-radius: 10px;
+    /*padding:2rem 0rem 10rem 2rem;*/
+    margin-left: 9rem;
+    margin-right:9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-style: oblique;
+
+}
+
+.bgimg .products
+{
+height:30rem;
+width:60rem;
+align-content: center;
+margin-left:50px;
+
+    
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './ChittyManagers.css'
+import ManagerList from './ManagerList';
 
 const ChittyManagers =()=>{
 
@@ -20,7 +21,8 @@ const ChittyManagers =()=>{
       const responseData = await response.json();
 
       const loadedManagers = [];
-      const newItemList = [...responseData._embedded.chittyList]
+      const newItemList = [...responseData._embedded.manager]
+      //manager is the classname
 
       for (const key in newItemList) {
         loadedManagers.push({
@@ -60,17 +62,22 @@ const ChittyManagers =()=>{
   }
 
   const managerList = managers.map((manager) => (
-    <ChitList
+    <ManagerList
       key={manager.id}
       firstName={manager.firstName}
       lastName={manager.lastName}
-      email={chit.email}
+      email={manager.email}
     />
   ));
 
    return(
    <div className="container">
        <ul>
+       <section class="wrapper">
+            <li className="div1 heading">First Name</li>
+            <li className="div2 heading">Last Name</li>
+            <li className="div3 heading">Email</li>
+        </section>
         {managerList}
        </ul>
     </div>
