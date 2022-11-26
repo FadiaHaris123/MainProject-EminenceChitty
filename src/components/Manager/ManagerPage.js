@@ -17,31 +17,51 @@ const ManagerPage = () => {
         setError(null);
         try {
             const response = await fetch(
-                'http://localhost:8080/api/chittylist'
+
+                'http://localhost:8080/api/chittyaccountdetails'
+
               );
-        
+
+       
+
               if (!response.ok) {
+
                 throw new Error('Something went wrong!');
+
               }
-        
 
             const data = await response.json();
 
+
+
             const loadedChit = [];
-            const newItemList = [...data._embedded.chittyList]
+
+
+            const newItemList = [...data._embedded.chittyaccountdetails]
+
+
 
             for (const key in newItemList) {
-                loadedChit.push({
-                    id: key,
-                    amount: newItemList[key].amount,
-                    chitNumber: newItemList[key].chitNumber,
-                    chitType: newItemList[key].chitType,
-                    days: newItemList[key].days,
-                    members: newItemList[key].members,
-                    startDate: newItemList[key].startDate,
-                });
-            }
 
+                loadedChit.push({
+
+                    id: key,
+
+                    amount: newItemList[key].amount,
+
+                    chitNumber: newItemList[key].chitNumber,
+
+                    chitType: newItemList[key].chitType,
+
+                    days: newItemList[key].days,
+
+                    members: newItemList[key].members,
+
+                    startDate: newItemList[key].startDate,
+
+                });
+
+            }
             setChit(loadedChit);
         } catch (error) {
             setError(error.message);
