@@ -8,6 +8,7 @@ import Manager from "./components/foreman/Manager/Manager"
 import ManagerPage from "./components/Manager/ManagerPage"
 import Customer from "./components/Customer/Customer"
 import LandingPage from "./components/LandingPage/LandingPage"
+import ChittyForm from "./components/ChittyForm/ChittyForm"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/employee" component={Manager}/>
           <Route path="/manager" component={ManagerPage}/>
           <Route path="/customer" component={Customer}/>
+          <Route path="/chittyform" component={ChittyForm}/>
         </Switch>
       </Router>
   )

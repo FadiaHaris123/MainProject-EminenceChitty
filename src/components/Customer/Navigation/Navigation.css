@@ -19,6 +19,7 @@
       outline: none;
       box-shadow:none
     }
+
   
     .btn-group .button:focus { outline: none; }
     
