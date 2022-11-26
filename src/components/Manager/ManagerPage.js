@@ -16,24 +16,29 @@ const ManagerPage = () => {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await fetch('https://assignchits-default-rtdb.firebaseio.com/assignedchits.json');
-            if (!response.ok) {
+            const response = await fetch(
+                'http://localhost:8080/api/chittylist'
+              );
+        
+              if (!response.ok) {
                 throw new Error('Something went wrong!');
-            }
+              }
+        
 
             const data = await response.json();
 
             const loadedChit = [];
+            const newItemList = [...data._embedded.chittyList]
 
-            for (const key in data) {
+            for (const key in newItemList) {
                 loadedChit.push({
                     id: key,
-                    amount: data[key].amount,
-                    chitNumber: data[key].chitNumber,
-                    chitType: data[key].chitType,
-                    days: data[key].days,
-                    members: data[key].members,
-                    startDate: data[key].startDate,
+                    amount: newItemList[key].amount,
+                    chitNumber: newItemList[key].chitNumber,
+                    chitType: newItemList[key].chitType,
+                    days: newItemList[key].days,
+                    members: newItemList[key].members,
+                    startDate: newItemList[key].startDate,
                 });
             }
 
