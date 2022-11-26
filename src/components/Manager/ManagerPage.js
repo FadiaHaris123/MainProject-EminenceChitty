@@ -16,7 +16,7 @@ const ManagerPage = () => {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await fetch('https://assignchits-default-rtdb.firebaseio.com/assignedchits.json');
+            const response = await fetch('http://localhost:8080/api/chittyaccountdetails');
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
