@@ -67,7 +67,6 @@ const LaunchForm = () => {
             loadedCategory.push({
               id: key,
               category_name: newItemList[key].categoryName,
-            
             });
           }
       
@@ -85,9 +84,7 @@ const LaunchForm = () => {
       }, []);
       if (isLoading) {
         return (
-         
             <h1>Loading...</h1>
-         
         );
       }
     
@@ -143,7 +140,7 @@ const LaunchForm = () => {
                 </select><br /><br />
 
                 <select className="minimal" value={employee} onChange={handleChange}>
-                    <option>Select Employee</option>
+                    <option>Chitty Manager</option>
                 {manager.map(manager => (
               <option value={manager.firstName}>{manager.firstName}</option>
     

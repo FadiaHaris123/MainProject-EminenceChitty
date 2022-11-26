@@ -2,7 +2,7 @@
     position: absolute;
     border: none;
     border-radius: 50px;
-    background-color: #e100ff;
+    background-color: #2940c4;
     color: #f1eded;
     padding: 10px 30px;
     text-align: center;
@@ -12,9 +12,8 @@
     cursor: pointer;
     outline: none;
     box-shadow:none;
-    top: 104%;
+    top: 105%;
     left: 0%;
-  
 }
 .forms{
   position: relative;

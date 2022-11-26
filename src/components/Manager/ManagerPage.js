@@ -10,25 +10,20 @@ const ManagerPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-
-
     const assignchits = useCallback(async () => {
         setIsLoading(true);
         setError(null);
         try {
             const response = await fetch(
-                'http://localhost:8080/api/chittylist'
-              );
+                'http://localhost:8080/api/chittyaccountdetails'
+            );
 
-              if (!response.ok) {
+            if (!response.ok) {
                 throw new Error('Something went wrong!');
-              }
-
-
+            }
             const data = await response.json();
-
             const loadedChit = [];
-            const newItemList = [...data._embedded.chittyList]
+            const newItemList = [...data._embedded.chittyaccountdetails]
 
             for (const key in newItemList) {
                 loadedChit.push({
@@ -41,31 +36,29 @@ const ManagerPage = () => {
                     startDate: newItemList[key].startDate,
                 });
             }
-
             //----------------- FOR DEMO -----------------//
-            // const response = await fetch('https://assignchits-default-rtdb.firebaseio.com/assignedchits.json');
-            // if (!response.ok) {
-            //     throw new Error('Something went wrong!');
-            // }
+                // const response = await fetch('https://assignchits-default-rtdb.firebaseio.com/assignedchits.json');
+                // if (!response.ok) {
+                //     throw new Error('Something went wrong!');
+                // }
 
-            // const data = await response.json();
+                // const data = await response.json();
 
-            // const loadedChit = [];
+                // const loadedChit = [];
 
-            // for (const key in data) {
-            //     loadedChit.push({
-            //         id: key,
-            //         amount: data[key].amount,
-            //         chitNumber: data[key].chitNumber,
-            //         chitType: data[key].chitType,
-            //         days: data[key].days,
-            //         members: data[key].members,
-            //         startDate: data[key].startDate,
-            //     });
-            // }
+                // for (const key in data) {
+                //     loadedChit.push({
+                //         id: key,
+                //         amount: data[key].amount,
+                //         chitNumber: data[key].chitNumber,
+                //         chitType: data[key].chitType,
+                //         days: data[key].days,
+                //         members: data[key].members,
+                //         startDate: data[key].startDate,
+                //     });
+                // }
 
-            //----------------- DEMO CLOSE ------------------//
-
+                //----------------- DEMO CLOSE ------------------//
             setChit(loadedChit);
         } catch (error) {
             setError(error.message);
