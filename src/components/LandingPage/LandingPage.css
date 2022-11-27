@@ -5,12 +5,12 @@
 }
 
 .overlay{
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.849));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.763),rgba(0, 0, 0, 0.589));
   height: 100vh;
 }
 
 .overlays{
-  background: linear-gradient(0deg, rgba(16, 15, 16, 0.667),rgba(26, 25, 26, 0.849));
+  background: linear-gradient(0deg, rgba(16, 15, 16, 0.416),rgba(26, 25, 26, 0.566));
   height: 100vh;
 }
 

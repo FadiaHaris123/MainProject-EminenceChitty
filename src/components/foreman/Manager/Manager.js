@@ -23,7 +23,7 @@ const Manager = () => {
 
 		const formData = new FormData();
 		formData.append('file',selectedFile);
-		fetch('http://localhost:8080/chitty/upload', {method: 'post',body: formData})
+		fetch('http://localhost:8080/api/chitty/upload', {method: 'post',body: formData})
 		.then(res => {
 			if (res.ok) {
 				console.log(res.data);
