@@ -129,7 +129,7 @@ const Auth = (props) => {
 
     const newItemList = [...responseData._embedded.userprofile]
     for (const key in newItemList) {
-      if (mail === newItemList[key].email) {
+      if ((mail === newItemList[key].email) && password == newItemList[key].passWord){
         if (mail.includes("admin@exp")){
           history.push("/admin"); break;
         }
