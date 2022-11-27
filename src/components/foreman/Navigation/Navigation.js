@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect} from "react";
 import './Navigation.css'
 import { Link } from 'react-router-dom'
 
@@ -6,43 +6,9 @@ const Navigation = () => {
 
   const [chittyCategory, setChittyCategory] = useState("")
 
-  const [manager, setManager] = useState([]);
   const [category, setCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
-
-  useEffect(() => {
-      const fetchEmployees = async () => {
-        const response = await fetch(
-          'http://localhost:8080/api/managers'
-        );
-  
-        if (!response.ok) {
-          throw new Error('Something went wrong!');
-        }
-  
-        const responseData = await response.json();
-  
-        const loadedManager = [];
-        const newItemList = [...responseData._embedded.manager]
-        for (const key in newItemList) {
-          loadedManager.push({
-            id: key,
-            firstName: newItemList[key].firstName,
-            emp_lastname: newItemList[key].emp_lastname,
-            email: newItemList[key].email,
-          });
-        }
-  
-        setManager(loadedManager);
-        setIsLoading(false);
-      };
-  
-      fetchEmployees().catch((error) => {
-        setIsLoading(false);
-        setHttpError(error.message);
-      });
-    }, []);
 
     useEffect(() => {
       const fetchChittyCategory = async () => {

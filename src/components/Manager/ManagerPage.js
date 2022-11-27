@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import React, { useState, useCallback } from 'react';
-import Header from "../foreman/Header/Header";
+import Header from "./Header";
 import ManagerNav from "./ManagerNav";
 import "./ManagerPage.css";
 import ChitList from './ChitList';
@@ -37,6 +37,7 @@ const ManagerPage = () => {
                 });
             }
             //----------------- FOR DEMO -----------------//
+            
                 // const response = await fetch('https://assignchits-default-rtdb.firebaseio.com/assignedchits.json');
                 // if (!response.ok) {
                 //     throw new Error('Something went wrong!');
@@ -91,7 +92,7 @@ const ManagerPage = () => {
                     {content}
                 </section>
                 <section className="manager-section-groups">
-                    <button className="manager-button-groups">Notifications</button>
+                    <button className="manager-button-groups">Add Customers</button>
                 </section>
             </div>
         </Fragment>)
