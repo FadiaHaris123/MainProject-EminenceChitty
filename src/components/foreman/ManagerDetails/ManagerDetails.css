@@ -1,4 +1,4 @@
-.modalBackground{
+.modalBackgrounds{
     position: fixed;
     top: 0;
     left: 0;
@@ -9,10 +9,10 @@
     z-index: 1000;
 }
 
-.modalContainer{
+.modalContainers{
     position: fixed;
     width: 500px;
-    height: 540px;
+    height: 500px;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0,0, 0, 0.35) 0px 5px 15px;
@@ -24,20 +24,20 @@
     transform: translate(-50%,-50%);
     z-index: 1000;
 }
-.modalContainer .title{
+.modalContainers .title{
     display: inline-block;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 
 
-#cancelBtn {
+.modalContainers #cancelBtn {
    
     position: absolute; 
     border: none;
     border-radius: 50px;
-    background-color: rgb(43, 58, 91);
+    background-color: rgb(59, 74, 116);
     color: #f1eded;
     padding: 10px 30px;
     text-align: center;
@@ -47,7 +47,7 @@
     cursor: pointer;
     outline: none;
     box-shadow:none;
-    top: 90%;
+    top: 84%;
     left: 55%;
     
 }

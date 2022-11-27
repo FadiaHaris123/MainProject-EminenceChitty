@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useReducer } from "react"
-import { Link,useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import Image from '../assets/images/login.jpg'
 import '../App.css'
 import './Auth.css'
@@ -8,7 +8,7 @@ import classes from './Login.module.css';
 import foreman from "../components/foreman/foreman"
 
 const Auth = (props) => {
-  
+
   let [authMode, setAuthMode] = useState("signin")
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -111,24 +111,40 @@ const Auth = (props) => {
   };
 
   let [mail, setMailMode] = useState("")
+  let [password, setPasswordMode] = useState("")
   const history = useHistory();
- 
-  if (authMode === "signin") {
 
-    const loginHandler = () => {
-      setMailMode (emailCurrentState.enteredEmail);
-      if(mail.includes("admin@exp")) {
-        history.push("/admin");
-      }if (mail.includes("manager@exp")) {
-        history.push("/manager");
-      }
-      if(mail.includes("customer@exp")){
-        history.push("/customer");
+  const loginHandler = async () => {
+    setMailMode(emailCurrentState.enteredEmail);
+    setPasswordMode(passwordCurrentState.enteredPassword);
+    const response = await fetch(
+      'http://localhost:8080/api/user-profile'
+    );
+
+    if (!response.ok) {
+      throw new Error('Something went wrong!');
+    }
+
+    const responseData = await response.json();
+
+    const newItemList = [...responseData._embedded.userprofile]
+    for (const key in newItemList) {
+      if ((mail === newItemList[key].email) && password == newItemList[key].passWord){
+        if (mail.includes("admin@exp")){
+          history.push("/admin"); break;
+        }
+        else if (mail.includes("manager@exp")) {
+          history.push("/manager"); break;
+        }
+        else {
+          history.push("/customer"); break;
+        }
       }
     }
-    return (
-      <header style={HeaderStyle}>
-        <div className="overlays">
+  };
+  return (
+    <header style={HeaderStyle}>
+      <div className="overlays">
         <div className="Auth-form-container">
           <form className="Auth-form" onSubmit={submitHandler}>
             <div className="Auth-form-content" >
@@ -170,21 +186,20 @@ const Auth = (props) => {
                   />
                 </div>
               </div>
-                <div className="submitButton">
-                  <button id="submitButton" type="submit" disabled={!formIsValid}  onClick={loginHandler}>
-                    Submit
-                  </button>
-                </div>
+              <div className="submitButton">
+                <button id="submitButton" type="submit" disabled={!formIsValid} onClick={loginHandler}>
+                  Submit
+                </button>
+              </div>
               <p className="text-center mt-2">
                 Forgot <a href="#">password?</a>
               </p>
             </div>
           </form>
         </div>
-        </div>
-      </header>
-    )
-  }
+      </div>
+    </header>
+  )
 }
 
 const HeaderStyle = {

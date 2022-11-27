@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom/client";
-
 
 
 import './LaunchForm.css'
@@ -75,6 +74,7 @@ const LaunchForm = () => {
 
 
       setCategory(loadedCategory);
+
       setIsLoading(false);
     };
 
@@ -121,8 +121,6 @@ const LaunchForm = () => {
     setTotalAmount(parseInt(installments * amount))
     console.log(parseInt(installments + amount))
   }
-  console.log(chittyCategory)
-
 
 
   return (
@@ -147,6 +145,7 @@ const LaunchForm = () => {
 
         <select className="minimal" value={employee} onChange={handleChange}>
           <option>Select Employee</option>
+          <option>Chitty Manager</option>
           {manager.map(manager => (
             <option value={manager.firstName}>{manager.firstName}</option>
 
@@ -167,9 +166,9 @@ const LaunchForm = () => {
 
 
         </select><br /><br />
+  
         <select id="amount" className="minimal" value={amount} onChange={amountHandler}>
           <option name="Select Amount" value="">Select Amount</option>
-
           <option name="10000" value="10000">10000</option>
           <option name="5000" value="5000">5000</option>
           <option name="4000" value="4000">4000</option>

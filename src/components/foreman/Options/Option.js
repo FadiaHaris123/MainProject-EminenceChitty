@@ -15,13 +15,13 @@ const Option =()=>{
             <tr>
                 <td>
                     <button className='button' onClick={()=>{setOpenModal(true)}}><span>Launch</span></button>
-                   {openModal && <Modal closeModal={setOpenModal}/> } 
+                   {openModal && <Modal closeModal={setOpenModal}/>} 
                 </td>
                 
                 <td>
                 <Link to="/auction">
                     <button className='button'><span>Auction</span></button>
-                    </Link>
+                </Link>
                 </td>
             </tr>
             <tr>
@@ -32,7 +32,6 @@ const Option =()=>{
                 </td>
                 <td>
                     <button className='button'><span>Earnings</span></button>
-
                 </td>
             </tr>
             </tbody>
