@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import ManagerDetails from '../ManagerDetails/ManagerDetails';
-import './Manager.css'
+import { Link } from 'react-router-dom';
+import classes from './Manager.module.css';
 
 
 
@@ -23,7 +23,7 @@ const Manager = () => {
 
 		const formData = new FormData();
 		formData.append('file',selectedFile);
-		fetch('http://localhost:8080/api/chitty/upload', {method: 'post',body: formData})
+		fetch('http://localhost:8080/api/managers/upload', {method: 'post',body: formData})
 		.then(res => {
 			if (res.ok) {
 				console.log(res.data);
@@ -36,10 +36,9 @@ const Manager = () => {
 	const fileData = () => {
 		if (selectedFile) {
 			return (
-				<div className='detailsShown'>
+				<div className={classes.detailsShown}>
 					<h6>File Details:</h6>
 					<p>File Name: {selectedFile.name}</p>
-					{/* <p>File Type: {this.state.selectedFile.type}</p> */}
 					<p>
 						Last Modified:{" "}
 						{selectedFile.lastModifiedDate.toDateString()}
@@ -55,16 +54,13 @@ const Manager = () => {
 			);
 		}
 	};
-
-	const [openModal, setOpenModal] = useState(false);
-
 	
 		return (
-			<div className='manage'>
-				<h1 className='header'>
+			<div className={classes.manage}>
+				<h1 className={classes.header}>
 					Chitty Manager Details
 				</h1>
-				<div className='upload'>
+				<div className={classes.upload}>
 					<h4>
 						Upload employee details
 					</h4>
@@ -75,9 +71,10 @@ const Manager = () => {
 							Upload!
 						</button>
 					</div>
-					<div className='filedata'>{fileData()}</div>
-					<button onClick={()=>{setOpenModal(true)}}>Show</button>
-					{openModal && <ManagerDetails closeModal={setOpenModal}/>} 
+					<div className={classes.filedata}>{fileData()}</div>
+					<Link to="/employee/managerslist">
+                        <button className={classes.button}><span>Show</span></button>
+                    </Link>
 				</div>
 			</div>
 		);

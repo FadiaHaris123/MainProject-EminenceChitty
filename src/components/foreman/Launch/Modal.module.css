@@ -1,4 +1,4 @@
-.modalBackgrounds{
+.modalBackground{
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     z-index: 1000;
 }
 
-.modalContainers{
+.modalContainer{
     position: fixed;
     width: 500px;
     height: 500px;
@@ -24,20 +24,28 @@
     transform: translate(-50%,-50%);
     z-index: 1000;
 }
-.modalContainers .title{
+.modalContainer .title{
     display: inline-block;
     text-align: center;
     margin-top: 10px;
+    font-size: 2rem;
+    padding-bottom: 2%;
+    color: #7ea3dc;
+    font-family: 'Lora';
+}
+
+.modalContainer h1{
+    font-size: 30px;
 }
 
 
 
-.modalContainers #cancelBtn {
+#cancelBtn {
    
     position: absolute; 
     border: none;
     border-radius: 50px;
-    background-color: rgb(59, 74, 116);
+    background-color: rgb(43, 58, 91);
     color: #f1eded;
     padding: 10px 30px;
     text-align: center;
@@ -47,7 +55,11 @@
     cursor: pointer;
     outline: none;
     box-shadow:none;
-    top: 84%;
-    left: 55%;
+    left: 51%;
+    margin-top: 80%;
     
+}
+
+#cancelBtn:hover{
+    transform: scaleY(1.2);
 }

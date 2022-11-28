@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react";
-import './Navigation.css'
 import { Link } from 'react-router-dom'
+import classes from './Navigation.module.css';
 
 const Navigation = () => {
 
@@ -58,18 +58,18 @@ const Navigation = () => {
     
 
   return (
-    <div id="navs" class="btn-group">
-      <button class="button">Auction</button>
-      <div class="dropdown">
-        <button class="button">Chitty</button>
-        <div class="dropdown-content">{category.map(category => (
+    <div id={classes.navs} class={classes.btn_group}>
+      <button class={classes.button}>Auction</button>
+      <div class={classes.dropdown}>
+        <button class={classes.button}>Chitty</button>
+        <div class={classes.dropdown_content}>{category.map(category => (
           <a href="#" value={category.category_name}>{category.category_name}</a>
         ))}
         </div>
       </div>
-      <button class="button">Customer Service</button>
+      <button class={classes.button}>Customer Service</button>
       <Link to="/">
-        <button class="logout-button ">Log Out</button>
+        <button class={classes.logout_button}>Log Out</button>
       </Link>
     </div>
   )

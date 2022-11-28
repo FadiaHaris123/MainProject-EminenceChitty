@@ -2,7 +2,7 @@
     position: absolute;
     border: none;
     border-radius: 50px;
-    background-color: #2940c4;
+    background-color: #3f4ea2;
     color: #f1eded;
     padding: 10px 30px;
     text-align: center;
@@ -12,7 +12,7 @@
     cursor: pointer;
     outline: none;
     box-shadow:none;
-    top: 105%;
+    margin-top: 15%;
     left: 0%;
 }
 .forms{
@@ -37,8 +37,8 @@ select,input {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    /* -webkit-appearance: none;
+    -moz-appearance: none; */
   }
 
   select.minimal {

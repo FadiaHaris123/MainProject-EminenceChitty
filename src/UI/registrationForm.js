@@ -27,7 +27,7 @@ function submit(e){
     lastName:data.lastName,
     email:data.email,
     mobileNo:parseInt(data.mobileNo),
-    password:data.password
+    passWord:data.passWord
   })
   .then(res=>{
     if(res.data != null){
@@ -107,11 +107,11 @@ let [authMode, setAuthMode] = useState("signup")
               <label>Password</label>
               <input
               onChange={(e)=>handle(e)}
-              id="password"
-              value={data.password}
+              id="passWord"
+              value={data.passWord}
                 type="password"
                 className="form-control mt-1"
-                placeholder="Password"
+                placeholder="PassWord"
               />
             </div>
             <div className="d-grid gap-2 mt-3">

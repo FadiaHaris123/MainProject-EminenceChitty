@@ -1,5 +1,5 @@
 import React, {useState,setState} from 'react';
-import './ChittyForm.css'
+import classes from './ChittyForm.module.css'
 // import Image from '../assets/chitty1.avif'
 import Header from './Header/Header'
 

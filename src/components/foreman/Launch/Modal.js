@@ -1,20 +1,20 @@
 import React, { Fragment } from "react";
-import './Modal.css'
+import classes from './Modal.module.css'
 import LaunchForm from './LaunchForm/LaunchForm'
 import ReactDOM from "react-dom"
 
 
 const Modal = ({ closeModal }) => {
     return ReactDOM.createPortal(<Fragment>
-        <div className="modalBackground"></div>
-            <div className="modalContainer">
-                <div className="title">
+        <div className={classes.modalBackground}></div>
+            <div className={classes.modalContainer}>
+                <div className={classes.title}>
                     <h1>Launch Chitty</h1>
                 </div>
                 <LaunchForm />
-                <button id="cancelBtn" onClick={() => closeModal(false)}>Cancel</button>
+                <button id={classes.cancelBtn} onClick={() => closeModal(false)}>Cancel</button>
 
-                <div className="footer"></div>
+                <div className={classes.footer}></div>
             </div>
             </Fragment>,
         document.getElementById('portal'))

@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import ReactDOM from "react-dom/client";
-import './LaunchForm.css'
+import classes from './LaunchForm.module.css';
 
 const LaunchForm = () => {
 
@@ -123,10 +123,10 @@ const LaunchForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="forms">
+      <div className={classes.forms}>
 
 
-        <select className="minimal" value={chittyCategory} onChange={handleChanger}>
+        <select className={classes.minimal} value={chittyCategory} onChange={handleChanger}>
           <option>Select Chitty Category</option>
           {category.map(category => (
             <option value={category.category_name}>{category.category_name}</option>
@@ -135,7 +135,7 @@ const LaunchForm = () => {
           }
         </select><br /><br />
 
-        <select className="minimal" value={employee} onChange={handleChange}>
+        <select className={classes.minimal} value={employee} onChange={handleChange}>
           <option>Chitty Manager</option>
           {manager.map(manager => (
             <option value={manager.firstName}>{manager.firstName}</option>
@@ -144,14 +144,14 @@ const LaunchForm = () => {
           }
         </select><br /><br />
 
-        <select id="month" value={installments} className="minimal" onChange={installmentsHandler}>
+        <select id={classes.month} value={installments} className={classes.minimal} onChange={installmentsHandler}>
           <option name="Select Months" value="">Select Installment</option>
           <option name="100" value="100">100 Months</option>
           <option name="50" value="50">50 Months</option>
           <option name="40" value="40">40 Months</option>
           <option name="30" value="30">30 Months</option>
         </select><br /><br />
-        <select id="amount" className="minimal" value={amount} onChange={amountHandler}>
+        <select id={classes.amount} className={classes.minimal} value={amount} onChange={amountHandler}>
           <option name="Select Amount" value="">Select Amount</option>
           <option name="10000" value="10000">10000</option>
           <option name="5000" value="5000">5000</option>
