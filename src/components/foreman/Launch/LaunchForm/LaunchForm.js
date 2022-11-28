@@ -1,5 +1,7 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom/client";
+
+
 import './LaunchForm.css'
 
 const LaunchForm = () => {
@@ -66,8 +68,10 @@ const LaunchForm = () => {
         loadedCategory.push({
           id: key,
           category_name: newItemList[key].categoryName,
+
         });
       }
+
 
       setCategory(loadedCategory);
 
@@ -87,9 +91,7 @@ const LaunchForm = () => {
 
   if (httpError) {
     return (
-
       <h1>{httpError}</h1>
-
     );
   }
 
@@ -125,6 +127,12 @@ const LaunchForm = () => {
     <form onSubmit={handleSubmit}>
       <div className="forms">
 
+        <input className="minimal"
+          name="chitty_no"
+          placeholder="Chitty No.eg:15/22"
+          required
+        ></input><br /><br />
+
 
         <select className="minimal" value={chittyCategory} onChange={handleChanger}>
           <option>Select Chitty Category</option>
@@ -136,6 +144,7 @@ const LaunchForm = () => {
         </select><br /><br />
 
         <select className="minimal" value={employee} onChange={handleChange}>
+          <option>Select Employee</option>
           <option>Chitty Manager</option>
           {manager.map(manager => (
             <option value={manager.firstName}>{manager.firstName}</option>
@@ -146,11 +155,18 @@ const LaunchForm = () => {
 
         <select id="month" value={installments} className="minimal" onChange={installmentsHandler}>
           <option name="Select Months" value="">Select Installment</option>
-          <option name="100" value="100">100 Months</option>
-          <option name="50" value="50">50 Months</option>
-          <option name="40" value="40">40 Months</option>
-          <option name="30" value="30">30 Months</option>
+          {chittyCategory === "Long Term Chitty" ? (<>
+            <option name="100" value="120">120 Months</option>
+            <option name="50" value="100">100 Months</option>
+            <option name="50" value="60">60 Months</option></>) : (<>
+
+              <option name="50" value="50">50 Months</option>
+              <option name="40" value="40">40 Months</option>
+              <option name="30" value="30">30 Months</option></>)}
+
+
         </select><br /><br />
+  
         <select id="amount" className="minimal" value={amount} onChange={amountHandler}>
           <option name="Select Amount" value="">Select Amount</option>
           <option name="10000" value="10000">10000</option>
