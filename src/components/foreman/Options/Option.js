@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './Option.css'
+import classes from './Option.module.css'
 import { Fragment, useState } from 'react';
 import Modal from '../Launch/Modal';
 
@@ -14,25 +14,26 @@ const Option =()=>{
             <tbody>
             <tr>
                 <td>
-                    <button className='button' onClick={()=>{setOpenModal(true)}}><span>Launch</span></button>
-                   {openModal && <Modal closeModal={setOpenModal}/> } 
+                    <button className={classes.button} onClick={()=>{setOpenModal(true)}}><span>Launch</span></button>
+                   {openModal && <Modal closeModal={setOpenModal}/>} 
                 </td>
                 
                 <td>
                 <Link to="/auction">
-                    <button className='button'><span>Auction</span></button>
-                    </Link>
+                    <button className={classes.button}><span>Auction</span></button>
+                </Link>
                 </td>
             </tr>
             <tr>
                 <td>
                     <Link to="/employee">
-                        <button className='button'><span>Employees</span></button>
+                        <button className={classes.button}><span>Employees</span></button>
                     </Link>
                 </td>
                 <td>
-                    <button className='button'><span>Earnings</span></button>
-
+                <Link to="/earnings">
+                    <button className={classes.button}><span>Earnings</span></button>
+                </Link>
                 </td>
             </tr>
             </tbody>

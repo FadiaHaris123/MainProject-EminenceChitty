@@ -1,24 +1,23 @@
 import { Fragment } from "react"
 import Header from './Header/Header'
 import Navigation from './Navigation/Navigation'
-import './Customer.css'
+import classes from './Customer.module.css'
 
 
 
 const Customer =()=>{
     return(
-      <div className="bgimg" >
+      <div className={classes.bgimg}>
 
-        <div className="header_nav">
+        <div className={classes.navbar}>
             <Header></Header>
                 <Navigation></Navigation>
          </div>
          
-         {/* <div className="container"> */}
-        <div className="imge"> </div>
+        <div className={classes.imge}> </div>
                 <br></br>
              <br></br>
-            <div className="about">
+            <div className={classes.about}>
                  <h1>About us</h1>
                  <br></br>
                  <p>A  unique  financial  savings  scheme, designed to ensure safe savings of your hard earned money. A chitty scheme with insurance coverage and pension plan, software that allows you to join chits, pay installments, and 
@@ -29,7 +28,7 @@ Chitty duration above 50 months is 11.50% (simple) and for defaulted accounts 13
      </div>
 
      
-     <div className="products">
+     <div className={classes.products}>
                  <h1>Products and services</h1>
                  <br></br>
                  <p>A unique financial savings scheme, designed to ensure safe savings of your hard earned money. A chitty scheme with insurance coverage and pension plan, software that allows you to join chits, pay installments, and 
@@ -37,7 +36,7 @@ Chitty duration above 50 months is 11.50% (simple) and for defaulted accounts 13
             
      </div>
 
-     <div className="services">
+     <div className={classes.services}>
                  <h1>Customer services</h1>
                  <br></br>
                  <p>A unique financial savings scheme, designed to ensure safe savings of your hard earned money. A chitty scheme with insurance coverage and pension plan, software that allows you to join chits, pay installments, and 
