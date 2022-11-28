@@ -17,7 +17,6 @@ function App() {
   return (
       <Router>
         <Switch>
-          {/* <ChittyManagers/> */}
           <Route exact path="/" component={ LandingPage } />
           <Route path="/login" component={Auth} />
           <Route path="/register" component={registrationForm}/>
