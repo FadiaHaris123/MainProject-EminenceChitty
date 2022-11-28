@@ -9,64 +9,39 @@ const ManagerPage = () => {
     const [chits, setChit] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-
-    
-
     const assignchits = useCallback(async () => {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await fetch(
-
-                'http://localhost:8080/api/chittyaccountdetails'
-
-              );
-
-       
-
-              if (!response.ok) {
-
+            const response = await fetch('http://localhost:8080/api/chittyaccountdetails');
+                if (!response.ok) {
                 throw new Error('Something went wrong!');
-
-              }
+  }
 
             const data = await response.json();
-
-
-
             const loadedChit = [];
-
             const newItemList = [...data._embedded.chittyaccountdetails]
-
-
-
             for (const key in newItemList) {
 
                 loadedChit.push({
-
                     id: key,
-
-                    amount: newItemList[key].amount,
-
+                     amount: newItemList[key].amount,
                     chitNumber: newItemList[key].chitNumber,
-
                     chitType: newItemList[key].chitType,
-
                     days: newItemList[key].days,
-
                     members: newItemList[key].members,
-
                     startDate: newItemList[key].startDate,
-
                 });
 
             }
             setChit(loadedChit);
-        } catch (error) {
+        } 
+        catch (error) {
             setError(error.message);
             }
         setIsLoading(false);
     }, []);
+    
     let content;
 
     if (chits.length > 0) {
@@ -93,6 +68,7 @@ const ManagerPage = () => {
                 </section>   
                 <section className="manager-section-groups">
                     <button className="manager-button-groups">Notifications</button>
+                    
                 </section>
             </div>
         </Fragment>)
