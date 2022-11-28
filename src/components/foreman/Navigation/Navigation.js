@@ -1,16 +1,78 @@
-import './Navigation.css'
+import { useState, useEffect} from "react";
 import { Link } from 'react-router-dom'
-const Navigation=()=>{
-    return(
-      <div class="btn-group">
-        <button class="button">Auction</button>
-        <button class="button">Chitty <i class="fas fa-caret-down"></i></button>
-        <button class="button">Customer Service</button>
-        <Link to = "/">
-        <button class="logout-button ">Log Out</button>
-        </Link>
+import classes from './Navigation.module.css';
+
+const Navigation = () => {
+
+
+  const [category, setCategory] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
+
+    useEffect(() => {
+      const fetchChittyCategory = async () => {
+        const response = await fetch(
+          'http://localhost:8080/api/chittyCategory'
+        );
+  
+        if (!response.ok) {
+          throw new Error('Something went wrong!');
+        }
+  
+        const responseData = await response.json();
+  
+        const loadedCategory = [];
+        const newItemList = [...responseData._embedded.chittyCategory]
+        for (const key in newItemList) {
+          loadedCategory.push({
+            id: key,
+            category_name: newItemList[key].categoryName,
+          });
+        }
+  
+        setCategory(loadedCategory);
+        
+        setIsLoading(false);
+      };
+      
+      fetchChittyCategory().catch((error) => {
+        setIsLoading(false);
+        setHttpError(error.message);
+      });
+    }, []);
+    if (isLoading) {
+      return (
+       
+          <h1>Loading...</h1>
+       
+      );
+    }
+  
+    if (httpError) {
+      return (
+       
+          <h1>{httpError}</h1>
+      
+      );
+    }
+    
+
+  return (
+    <div id={classes.navs} class={classes.btn_group}>
+      <button class={classes.button}>Auction</button>
+      <div class={classes.dropdown}>
+        <button class={classes.button}>Chitty</button>
+        <div class={classes.dropdown_content}>{category.map(category => (
+          <a href="#" value={category.category_name}>{category.category_name}</a>
+        ))}
+        </div>
       </div>
-    )
-   
+      <button class={classes.button}>Customer Service</button>
+      <Link to="/">
+        <button class={classes.logout_button}>Log Out</button>
+      </Link>
+    </div>
+  )
+
 }
 export default Navigation;

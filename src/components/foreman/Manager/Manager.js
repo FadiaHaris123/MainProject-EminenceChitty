@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import './Manager.css'
 
-class Manager extends Component {
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import classes from './Manager.module.css';
 
-	state = {
-		// Initially, no file is selected 
-		selectedFile: null
-	};
+
+
+
+const Manager = () => {
+	
+	const [selectedFile,setState] = useState(null);
 
 	// On file select (from the pop up) 
-	onFileChange = event => {
+	const onFileChange = event => {
 	// Update the state 
-		this.setState({ selectedFile: event.target.files[0] });
+		setState(event.target.files[0]);
 	};
 
 
-	onFileUpload = (e) => {
+	const onFileUpload = (e) => {
 		e.preventDefault();
-		this.setState({
-			selectedFile: e.target.files
-		});
+		setState(e.target.files);
 
 		const formData = new FormData();
-		formData.append('file', this.state.selectedFile);
-		fetch('http://localhost:8080/chitty/upload', {method: 'post',body: formData})
+		formData.append('file',selectedFile);
+		fetch('http://localhost:8080/api/managers/upload', {method: 'post',body: formData})
 		.then(res => {
 			if (res.ok) {
 				console.log(res.data);
@@ -33,16 +33,15 @@ class Manager extends Component {
 	};
 
 	
-	fileData = () => {
-		if (this.state.selectedFile) {
+	const fileData = () => {
+		if (selectedFile) {
 			return (
-				<div className='detailsShown'>
+				<div className={classes.detailsShown}>
 					<h6>File Details:</h6>
-					<p>File Name: {this.state.selectedFile.name}</p>
-					{/* <p>File Type: {this.state.selectedFile.type}</p> */}
+					<p>File Name: {selectedFile.name}</p>
 					<p>
 						Last Modified:{" "}
-						{this.state.selectedFile.lastModifiedDate.toDateString()}
+						{selectedFile.lastModifiedDate.toDateString()}
 					</p>
 				</div>
 			);
@@ -55,33 +54,32 @@ class Manager extends Component {
 			);
 		}
 	};
-
-
 	
-	render() {
 		return (
-			<div className='manage'>
-				<h1 className='header'>
+			<div className={classes.manage}>
+				<h1 className={classes.header}>
 					Chitty Manager Details
 				</h1>
-				<div className='upload'>
+				<div className={classes.upload}>
 					<h4>
 						Upload employee details
 					</h4>
 					<div>
 						<br></br>
-						<input type="file" onChange={this.onFileChange} />
-						<button onClick={this.onFileUpload}>
+						<input type="file" onChange={onFileChange} />
+						<button onClick={onFileUpload}>
 							Upload!
 						</button>
 					</div>
-					<div className='filedata'>{this.fileData()}</div>
-					<button>Show</button>
+					<div className={classes.filedata}>{fileData()}</div>
+					<Link to="/employee/managerslist">
+                        <button className={classes.button}><span>Show</span></button>
+                    </Link>
 				</div>
 			</div>
 		);
 	}
-}
+
 
 export default Manager;
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './AvailableChit.css'
+import classes from './AvailableChit.module.css'
 import ChitList from './ChitList';
 
 const AvailableChit =()=>{
@@ -46,7 +46,7 @@ const AvailableChit =()=>{
 
   if (isLoading) {
     return (
-      <section className="chitsLoading">
+      <section className={classes.chitsLoading}>
         <p>Loading...</p>
       </section>
     );
@@ -54,7 +54,7 @@ const AvailableChit =()=>{
 
   if (httpError) {
     return (
-      <section className="chitsError">
+      <section className={classes.chitsError}>
         <p>{httpError}</p>
       </section>
     );
@@ -71,7 +71,7 @@ const AvailableChit =()=>{
   ));
 
    return(
-   <div className="container">
+   <div className={classes.container}>
 
        <h4>Available Chits</h4> 
        <ul>
