@@ -11,7 +11,8 @@ import LandingPage from "./components/LandingPage/LandingPage"
 import ChittyForm from "./components/ChittyForm/ChittyForm"
 import ChittyManagers from "./components/foreman/ManagerDetails/ChittyManagers"
 import Earnings from "./components/Earnings/Earnings"
-
+import Auction from './components/Customer/pages/CustomerAuction/Auction'
+import Profile from './components/Customer/pages/CustomerProfile/src/App'
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
           <Route path="/customer" component={Customer}/>
           <Route path="/chittyform" component={ChittyForm}/>
           <Route path="/earnings" component={Earnings}/>
+          <Route path='/auction' component={Auction} />
+          <Route path='/customerprofile' component={Profile} />
         </Switch>
       </Router>
   )
