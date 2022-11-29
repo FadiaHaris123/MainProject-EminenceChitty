@@ -7,21 +7,21 @@ export const SidebarData = [
 
   {
     title: 'Profile',
-    path: '/home',
+    path: '/customer',
     icon: <RiIcons.RiProfileLine />,
     cName: 'nav-text'
   },
 
   {
     title: 'Available Chits',
-    path: '/availablechits',
+    path: '/customer/availablechits',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
 
   {
     title: 'Auction',
-    path: '/auction',
+    path: '/customer/auction',
     icon: <RiIcons.RiAuctionFill />,
     cName: 'nav-text'
   },

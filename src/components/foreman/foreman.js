@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import AvailableChit from "./AvailableChits/AvailableChit"
+import AvailableChit from "../Customer/pages/AvailableChits/AvailableChit"
 import Header from './Header/Header'
 import Navigation from './Navigation/Navigation'
 import Option from './Options/Option'

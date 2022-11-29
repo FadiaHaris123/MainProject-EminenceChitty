@@ -1,4 +1,4 @@
-import './Search.css'
+import classes from './Search.module.css'
 
 function Search(props) {
 
@@ -7,7 +7,7 @@ function Search(props) {
  } 
  
 return(
-  <div className="search">
+  <div className={classes.search}>
       <input
           type="text"
           placeholder="Search..."

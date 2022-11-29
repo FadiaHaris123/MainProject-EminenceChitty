@@ -73,7 +73,7 @@ return(
     <section className={classes.tablecontainer}>
         <Search search={onSearchHandler}/>
         <TableContainer className={classes.table} component={Paper} sx={{maxHeight:'200px'}}>
-        <Table aria-label="simple table" stickyHeader>
+        <Table className={classes.css_rqglhn_MuiTable_root} aria-label="simple table" stickyHeader>
             <TableHead>
                 <TableRow className={classes.tablehead}>
                     <TableCell align='center'>FirstName</TableCell>

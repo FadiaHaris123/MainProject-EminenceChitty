@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #060b26;
+  background-color: rgb(20, 32, 58);
   height: 80px;
   display: flex;
   justify-content:start;
@@ -7,9 +7,13 @@
   text-align: right;
 }
 
-.navbar h1{
-  color: aliceblue;
-  margin-left: 56rem;
+.navbar .tagName{
+  font-family: 'Lora';
+  font-size: 35px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0.5%;
+  margin-left: 65%;
 }
 
 .menu-bars {
@@ -19,7 +23,7 @@
 }
 
 .nav-menu {
-  background-color: #060b26;
+  background-color: rgb(20, 32, 58);
   width: 250px;
   height: 100vh;
   display: flex;
@@ -33,6 +37,7 @@
 .nav-menu.active {
   left: -2rem;
   transition: 350ms;
+  z-index: 100;
 }
 
 .nav-text {
@@ -57,7 +62,7 @@
 }
 
 .nav-text a:hover {
-  background-color: #1a83ff;
+  background-color: rgb(98, 112, 141);
 }
 
 .nav-menu-items {
@@ -65,7 +70,7 @@
 }
 
 .navbar-toggle {
-  background-color: #060b26;
+  background-color: rgb(20, 32, 58);
   width: 100%;
   height: 80px;
   display: flex;
@@ -73,6 +78,3 @@
   align-items: center;
 }
 
-span {
-  margin-left: 16px;
-}

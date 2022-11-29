@@ -26,3 +26,12 @@
 .tablebody{
     background-color: rgb(204, 206, 215);
 }
+
+.css_rqglhn_MuiTable_root {
+    display: table;
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    left: 0;
+    /* top: 60%; */
+}
