@@ -7,9 +7,6 @@ const Earnings = () => {
        
            
         <Header></Header>
-      
-        
-    )
-
+      )
 }
 export default Earnings;
