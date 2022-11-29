@@ -1,6 +1,14 @@
+import Header from './Header/Header'
+import classes from './Earnings.module.css'
+
+
 const Earnings = () => {
     return(
-        <h1>At Earnings LandingPage</h1>
+       
+           
+        <Header></Header>
+      
+        
     )
 
 }
