@@ -12,7 +12,6 @@ import ChittyForm from "./components/ChittyForm/ChittyForm"
 import ChittyManagers from "./components/foreman/ManagerDetails/ChittyManagers"
 import Earnings from "./components/Earnings/Earnings"
 
-
 function App() {
   return (
       <Router>

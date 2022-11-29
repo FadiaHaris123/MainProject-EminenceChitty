@@ -111,7 +111,7 @@ let [authMode, setAuthMode] = useState("signup")
               value={data.passWord}
                 type="password"
                 className="form-control mt-1"
-                placeholder="PassWord"
+                placeholder="Password"
               />
             </div>
             <div className="d-grid gap-2 mt-3">
