@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Navbar from '../../Navbar';
 import classes from './AvailableChit.module.css'
 import ChitList from './ChitList';
 
@@ -11,8 +12,10 @@ const AvailableChit =()=>{
   useEffect(() => {
     const fetchChits = async () => {
       const response = await fetch(
-        'http://localhost:8080/api/chittylist'
+        'http://localhost:8080/api/chitty'
       );
+
+      console.log(response);
 
       if (!response.ok) {
         throw new Error('Something went wrong!');
@@ -21,7 +24,7 @@ const AvailableChit =()=>{
       const responseData = await response.json();
 
       const loadedChits = [];
-      const newItemList = [...responseData._embedded.chittyList]
+      const newItemList = [...responseData._embedded.chitty]
 
       for (const key in newItemList) {
         loadedChits.push({
@@ -71,14 +74,15 @@ const AvailableChit =()=>{
   ));
 
    return(
-   <div className={classes.container}>
-
+   <React.Fragment>
+      <Navbar/>
+       <div className={classes.container}>
        <h4>Available Chits</h4> 
        <ul>
         {chitList}
        </ul>
-
-    </div>
+       </div>
+    </React.Fragment>
     )
 }
 export default AvailableChit;

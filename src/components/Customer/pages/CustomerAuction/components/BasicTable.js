@@ -71,8 +71,9 @@ if (httpError) {
 return(
     <section className={classes.tablecontainer}>
         <Search search={onSearchHandler}/>
+        <div className={classes.autionTable}>
         <TableContainer className={classes.table} component={Paper}>
-        <Table>
+        <Table className={classes.css_rqglhn_MuiTable_root}>
             <TableHead>
                 <TableRow className={classes.tablehead}>
                     <TableCell align='center'>Chit No.</TableCell>
@@ -83,7 +84,6 @@ return(
                 </TableRow>
             </TableHead>
             <TableBody className={classes.tablebody}>
-                {/* {managers.map(row=>( */}
                     <TableRow>
                         <TableCell align='center'>01/2021</TableCell>
                         <TableCell align='center'>abc</TableCell>
@@ -91,10 +91,10 @@ return(
                         <TableCell align='center'>online</TableCell>
                         <TableCell align='center'><button>Enter</button></TableCell>
                     </TableRow>
-                {/* ))} */}
             </TableBody>
         </Table>
     </TableContainer>
+        </div>
     </section>
 )
 

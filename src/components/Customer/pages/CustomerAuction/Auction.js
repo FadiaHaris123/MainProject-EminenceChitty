@@ -1,16 +1,20 @@
 import React from 'react';
 import BasicTable  from './components/BasicTable'
 import Navbar from '../../Navbar';
+import classes from './Auction.module.css';
+
 function Auction() {
   return (
-    <div className='auction'>
+    <div className={classes.auction}>
       <Navbar/>
       <h1>Auction Details</h1>
-      <h2>Auction Eligibility</h2>
-      <h2>Upcoming Auctions</h2>
+      <h4><a href='#'>Auction Eligibility</a></h4>
+      <section className={classes.upcomingAuctions}>
+      <h4><a href='#'>Upcoming Auctions</a></h4>
       <div>
-        <BasicTable />
+      <BasicTable />
       </div>
+      </section>
     </div>
   );
 }

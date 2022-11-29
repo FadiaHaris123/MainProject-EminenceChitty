@@ -151,7 +151,7 @@ const LaunchForm = () => {
         </select><br /><br />
 
         <select id={classes.month} value={installments} className={classes.minimal} onChange={installmentsHandler}>
-          <option name="Select Months" value="">Select Installment</option>
+          <option name="Select Months" value="">Select duration</option>
           {chittyCategory === "Long Term Chitty" ? (<>
             <option name="100" value="120">120 Months</option>
             <option name="50" value="100">100 Months</option>
@@ -164,7 +164,7 @@ const LaunchForm = () => {
 
         </select><br /><br />
         <select id={classes.amount} className={classes.minimal} value={amount} onChange={amountHandler}>
-          <option name="Select Amount" value="">Select Amount</option>
+          <option name="Select Amount" value="">Select Installment</option>
           <option name="10000" value="10000">10000</option>
           <option name="5000" value="5000">5000</option>
           <option name="4000" value="4000">4000</option>
@@ -181,7 +181,7 @@ const LaunchForm = () => {
         ) : (
           <input
             name="total"
-            value="Total Prize"
+            value="Total Price"
             onClick={totalAmountHandler}
             readOnly
           ></input>
