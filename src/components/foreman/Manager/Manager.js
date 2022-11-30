@@ -1,10 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Manager.module.css';
-
-
-
 
 const Manager = () => {
 	

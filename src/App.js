@@ -22,7 +22,7 @@ function App() {
           <Route path="/login" component={Auth} />
           <Route path="/register" component={registrationForm}/>
           <Route path="/admin" component={foreman} />
-          <Route exact path="/employee" component={Manager}/>
+          <Route path="/employee" component={Manager}/>
           <Route path="/manager" component={ManagerPage}/>
           <Route path="/employee/managerslist" component={ChittyManagers}/>
           <Route exact path="/customer" component={Customer}/>

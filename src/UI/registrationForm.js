@@ -70,7 +70,7 @@ let [authMode, setAuthMode] = useState("signup")
                 value={data.firstName}
                 type="name"
                 className="form-control mt-1"
-                placeholder="e.g Jane "
+                placeholder="e.g Anagha "
               />
             </div>
             <div className="form-group mt-3">
@@ -81,7 +81,7 @@ let [authMode, setAuthMode] = useState("signup")
               value={data.lastName}
                 type="name"
                 className="form-control mt-1"
-                placeholder="e.g Doe"
+                placeholder="e.g Rajeev"
               />
             </div>
             <div className="form-group mt-3">
@@ -92,7 +92,7 @@ let [authMode, setAuthMode] = useState("signup")
               value={data.email}
                 type="email"
                 className="form-control mt-1"
-                placeholder="e.g abc@gmail.com"
+                placeholder="e.g anagha@gmail.com"
               />
             </div>
             <div className="form-group mt-3">
